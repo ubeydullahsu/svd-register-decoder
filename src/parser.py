@@ -1,4 +1,4 @@
-import xmltree.ElementTree as ET
+import xml.etree.ElementTree as ET
 
 class FieldDef:
     def __init__(self, name, bitOffset, bitWidth, desc = ""):
