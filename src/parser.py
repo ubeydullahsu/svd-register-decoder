@@ -22,6 +22,7 @@ class FieldDef:
         self.bitWidth = bitWidth
         self.desc = desc
 
+
 class RegisterDef:
     '''
     Class to represent a register
@@ -50,6 +51,7 @@ class RegisterDef:
             return int(value_str, 16)
         except ValueError:
             return 0
+        
        
 def pretty(d, indent=0):
    '''
@@ -68,6 +70,7 @@ def pretty(d, indent=0):
         else:
             print('\t' * (indent+1) + str(value))
 
+
 def parse_filename_without_ext(path):
     """
     Given a file path, returns only the file name without extension.    
@@ -81,6 +84,7 @@ def parse_filename_without_ext(path):
     base = os.path.basename(path)
     name, _ = os.path.splitext(base)
     return name
+
 
 def save_memory_map_as_json_database(memory_map, file_path):
     '''
@@ -184,7 +188,7 @@ def parse_svd(file_path):
                 if address not in memory_map:
                     memory_map[address] = reg_obj
 
-        print("memory map created from svd file")
+        print(f"memory map created from svd file: {len(memory_map)} registers found . .")
         save_memory_map_as_json_database(memory_map, database_file_path)
 
     # TO DO: Namespace management if root.findall cannot find elements. xlmns may be needed.

@@ -51,7 +51,7 @@ def format_output(reg_def, decoded_fields):
     @return: Formatted string
 
     '''
-    output = f"Register: {reg_def.name} (0x{reg_def.address:X})\n"
+    output = f"Register: {reg_def.name} (0x{reg_def.address:08X})\n"
     output += f"Description: {reg_def.desc}\n"
     output += "Fields:\n"
 
