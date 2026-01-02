@@ -72,7 +72,7 @@ def parse_svd(file_path):
 
     @param file_path: Path to the SVD file
     @return: Dictionary representing memory map {address: RegisterDef}
-    
+
     '''
     tree = ET.parse(file_path)
     root = tree.getroot()
@@ -102,7 +102,10 @@ def parse_svd(file_path):
                 )
                 reg_obj.add_field(field_obj)
 
-            memory_map[address] = reg_obj
+            if address not in memory_map:
+                memory_map[address] = reg_obj
+
+    # TO DO: Namespace management if root.findall cannot find elements. xlmns may be needed.
 
     # Some testing
     # print(memory_map[1073816320].name)
