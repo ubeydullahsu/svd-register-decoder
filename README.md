@@ -37,7 +37,7 @@ Follow these steps to set up the environment:
 
 ---
 
-## 🛠 Usage
+## Usage
 
 Run the tool by providing the SVD file, target address, and the value you want to decode:
 
