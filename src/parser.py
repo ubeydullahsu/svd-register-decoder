@@ -188,16 +188,5 @@ def parse_svd(file_path):
         save_memory_map_as_json_database(memory_map, database_file_path)
 
     # TO DO: Namespace management if root.findall cannot find elements. xlmns may be needed.
-
-    # Some testing
-    print(memory_map[1073816320].name)
-    print(memory_map[1073816320].address)
-    print(memory_map[1073816320].size)
-    print(memory_map[1073816320].access)
-    print(memory_map[1073816320].desc)
-    pretty(memory_map)  # Pretty print the register details
     
     return memory_map
-
-# testing whole file
-parse_svd("C:\github_ws\svd-register-decoder\data\stm32\stm32f4\STM32F401.svd")
