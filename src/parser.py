@@ -117,7 +117,7 @@ def save_memory_map_as_json_database(memory_map, file_path):
     with open(file_path, 'w') as json_file:
         json.dump(json_map, json_file, indent=4)
 
-    print("memory map saved to json database")
+    print("memory map saved to json database\n")
 
 
 def parse_svd(file_path):
@@ -154,7 +154,7 @@ def parse_svd(file_path):
                 )
                 reg_obj.add_field(field_obj)
             memory_map[address] = reg_obj
-        print("memory map loaded from json database")
+        print("memory map loaded from json database\n")
 
     else:
         tree = ET.parse(file_path)
