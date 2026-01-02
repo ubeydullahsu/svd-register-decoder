@@ -1,6 +1,6 @@
 # SVD Register Decoder
 
-**SVD Register Decoder** is a high-performance command-line tool designed for MCU developers and embedded security researchers. It bridges the gap between raw hardware data and human-readable information, featuring a unique "dreamy" terminal aesthetic.
+**SVD Register Decoder** is a high-performance command-line tool designed for MCU developers and embedded security researchers. It bridges the gap between raw hardware data and human-readable information.
 
 > **Current Version:** 0.1  
 > **Status:** Stable Release - Focus on Performance & Caching
