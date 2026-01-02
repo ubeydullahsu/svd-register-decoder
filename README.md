@@ -44,6 +44,7 @@ Run the tool by providing the SVD file, target address, and the value you want t
 ```bash
 python src/main.py --svd [svd_file] --addr [address] --val [raw_value]
 ```
+![Example Output](images/example_output.png)
 
 ### **Workflow:**
 
