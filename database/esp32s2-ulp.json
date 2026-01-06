@@ -1,0 +1,2291 @@
+{
+    "41984": {
+        "name": "RTC_GPIO_OUT",
+        "address": 41984,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO output register",
+        "fields": [
+            {
+                "name": "GPIO_OUT_DATA",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 output register. Bit10 corresponds to GPIO0, bit11 corresponds to GPIO1, etc."
+            }
+        ]
+    },
+    "41988": {
+        "name": "RTC_GPIO_OUT_W1TS",
+        "address": 41988,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO output bit set register",
+        "fields": [
+            {
+                "name": "GPIO_OUT_DATA_W1TS",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 output set register. If the value 1 is written to a bit here, the corresponding bit in RTCIO_RTC_GPIO_OUT_REG will be set to 1. Recommended operation: use this register to set RTCIO_RTC_GPIO_OUT_REG."
+            }
+        ]
+    },
+    "41992": {
+        "name": "RTC_GPIO_OUT_W1TC",
+        "address": 41992,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO output bit clear register",
+        "fields": [
+            {
+                "name": "GPIO_OUT_DATA_W1TC",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 output clear register. If the value 1 is written to a bit here, the corresponding bit in RTCIO_RTC_GPIO_OUT_REG will be cleared. Recommended operation: use this register to clear RTCIO_RTC_GPIO_OUT_REG."
+            }
+        ]
+    },
+    "41996": {
+        "name": "RTC_GPIO_ENABLE",
+        "address": 41996,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO output enable register",
+        "fields": [
+            {
+                "name": "REG_RTCIO_REG_GPIO_ENABLE",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 output enable. Bit10 corresponds to GPIO0, bit11 corresponds to GPIO1, etc. If the bit is set to 1, it means this GPIO pad is output."
+            }
+        ]
+    },
+    "42000": {
+        "name": "RTC_GPIO_ENABLE_W1TS",
+        "address": 42000,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO output enable bit set register",
+        "fields": [
+            {
+                "name": "REG_RTCIO_REG_GPIO_ENABLE_W1TS",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 output enable set register. If the value 1 is written to a bit here, the corresponding bit in RTCIO_RTC_GPIO_ENABLE_REG will be set to 1. Recommended operation: use this register to set RTCIO_RTC_GPIO_ENABLE_REG."
+            }
+        ]
+    },
+    "42004": {
+        "name": "RTC_GPIO_ENABLE_W1TC",
+        "address": 42004,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO output enable bit clear register",
+        "fields": [
+            {
+                "name": "REG_RTCIO_REG_GPIO_ENABLE_W1TC",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 output enable clear register. If the value 1 is written to a bit here, the corresponding bit in RTCIO_RTC_GPIO_ENABLE_REG will be cleared. Recommended operation: use this register to clear RTCIO_RTC_GPIO_ENABLE_REG."
+            }
+        ]
+    },
+    "42008": {
+        "name": "RTC_GPIO_STATUS",
+        "address": 42008,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO interrupt status register",
+        "fields": [
+            {
+                "name": "GPIO_STATUS_INT",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 interrupt status register. Bit10 corresponds to GPIO0, bit11 corresponds to GPIO1, etc. This register should be used together with RTCIO_RTC_GPIO_PINn_INT_TYPE in RTCIO_RTC_GPIO_PINn_REG. 0: no interrupt; 1: corresponding interrupt."
+            }
+        ]
+    },
+    "42012": {
+        "name": "RTC_GPIO_STATUS_W1TS",
+        "address": 42012,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO interrupt status bit set register",
+        "fields": [
+            {
+                "name": "GPIO_STATUS_INT_W1TS",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 interrupt set register. If the value 1 is written to a bit here, the corresponding bit in RTCIO_GPIO_STATUS_INT will be set to 1. Recommended operation: use this register to set RTCIO_GPIO_STATUS_INT."
+            }
+        ]
+    },
+    "42016": {
+        "name": "RTC_GPIO_STATUS_W1TC",
+        "address": 42016,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO interrupt status bit clear register",
+        "fields": [
+            {
+                "name": "GPIO_STATUS_INT_W1TC",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 interrupt clear register. If the value 1 is written to a bit here, the corresponding bit in RTCIO_GPIO_STATUS_INT will be cleared. Recommended operation: use this register to clear RTCIO_GPIO_STATUS_INT."
+            }
+        ]
+    },
+    "42020": {
+        "name": "RTC_GPIO_IN",
+        "address": 42020,
+        "size": 32,
+        "access": "",
+        "desc": "RTC GPIO input register",
+        "fields": [
+            {
+                "name": "GPIO_IN_NEXT",
+                "bitOffset": 10,
+                "bitWidth": 22,
+                "desc": "GPIO0 ~ 21 input value. Bit10 corresponds to GPIO0, bit11 corresponds to GPIO1, etc. Each bit represents a pad input value, 1 for high level, and 0 for low level."
+            }
+        ]
+    },
+    "42024": {
+        "name": "RTC_GPIO_PIN%s",
+        "address": 42024,
+        "size": 32,
+        "access": "",
+        "desc": "RTC configuration for pin %s",
+        "fields": [
+            {
+                "name": "GPIO_PIN_PAD_DRIVER",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Pad driver selection. 0: normal output. 1: open drain."
+            },
+            {
+                "name": "GPIO_PIN_INT_TYPE",
+                "bitOffset": 7,
+                "bitWidth": 3,
+                "desc": "GPIO interrupt type selection. 0: GPIO interrupt disabled. 1: rising edge trigger. 2: falling edge trigger. 3: any edge trigger. 4: low level trigger. 5: high level trigger."
+            },
+            {
+                "name": "GPIO_PIN_WAKEUP_ENABLE",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "GPIO wake-up enable. This will only wake up ESP32-S2 from Light-sleep."
+            }
+        ]
+    },
+    "42112": {
+        "name": "RTC_DEBUG_SEL",
+        "address": 42112,
+        "size": 32,
+        "access": "",
+        "desc": "RTC debug select register",
+        "fields": [
+            {
+                "name": "RTC_DEBUG_SEL0",
+                "bitOffset": 0,
+                "bitWidth": 5,
+                "desc": ""
+            },
+            {
+                "name": "RTC_DEBUG_SEL1",
+                "bitOffset": 5,
+                "bitWidth": 5,
+                "desc": ""
+            },
+            {
+                "name": "RTC_DEBUG_SEL2",
+                "bitOffset": 10,
+                "bitWidth": 5,
+                "desc": ""
+            },
+            {
+                "name": "RTC_DEBUG_SEL3",
+                "bitOffset": 15,
+                "bitWidth": 5,
+                "desc": ""
+            },
+            {
+                "name": "RTC_DEBUG_SEL4",
+                "bitOffset": 20,
+                "bitWidth": 5,
+                "desc": ""
+            },
+            {
+                "name": "RTC_DEBUG_12M_NO_GATING",
+                "bitOffset": 25,
+                "bitWidth": 1,
+                "desc": ""
+            }
+        ]
+    },
+    "42116": {
+        "name": "TOUCH_PAD%s",
+        "address": 42116,
+        "size": 32,
+        "access": "",
+        "desc": "Touch pad %s configuration register",
+        "fields": [
+            {
+                "name": "FUN_IE",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Input enable in normal execution."
+            },
+            {
+                "name": "SLP_OE",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "Output enable in sleep mode."
+            },
+            {
+                "name": "SLP_IE",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "Input enable in sleep mode."
+            },
+            {
+                "name": "SLP_SEL",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "0: no sleep mode. 1: enable sleep mode."
+            },
+            {
+                "name": "FUN_SEL",
+                "bitOffset": 17,
+                "bitWidth": 2,
+                "desc": "Function selection."
+            },
+            {
+                "name": "MUX_SEL",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "Connect the RTC pad input to digital pad input.  0 is available."
+            },
+            {
+                "name": "XPD",
+                "bitOffset": 20,
+                "bitWidth": 1,
+                "desc": "Touch sensor power on."
+            },
+            {
+                "name": "TIE_OPT",
+                "bitOffset": 21,
+                "bitWidth": 1,
+                "desc": "The tie option of touch sensor. 0: tie low. 1: tie high."
+            },
+            {
+                "name": "START",
+                "bitOffset": 22,
+                "bitWidth": 1,
+                "desc": "Start touch sensor."
+            },
+            {
+                "name": "DAC",
+                "bitOffset": 23,
+                "bitWidth": 3,
+                "desc": "Touch sensor slope control. 3-bit for each touch pad, defaults to 0x4."
+            },
+            {
+                "name": "RUE",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "Pull-down enable of the pad. 1: internal pull-down enabled. 0: internal pull-down disabled."
+            },
+            {
+                "name": "RDE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "Pull-up enable of the pad. 1: internal pull-up enabled. 0: internal pull-up disabled."
+            },
+            {
+                "name": "DRV",
+                "bitOffset": 29,
+                "bitWidth": 2,
+                "desc": "Select the drive strength of the pad. 0: ~5 mA. 1: ~10 mA. 2: ~20 mA. 3: ~40 mA."
+            }
+        ]
+    },
+    "42176": {
+        "name": "XTAL_32P_PAD",
+        "address": 42176,
+        "size": 32,
+        "access": "",
+        "desc": "32KHz crystal P-pad configuration register",
+        "fields": [
+            {
+                "name": "X32P_FUN_IE",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Input enable in normal execution."
+            },
+            {
+                "name": "X32P_SLP_OE",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "output enable in sleep mode."
+            },
+            {
+                "name": "X32P_SLP_IE",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "input enable in sleep mode."
+            },
+            {
+                "name": "X32P_SLP_SEL",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "1: enable sleep mode. 0: no sleep mode."
+            },
+            {
+                "name": "X32P_FUN_SEL",
+                "bitOffset": 17,
+                "bitWidth": 2,
+                "desc": "Function selection."
+            },
+            {
+                "name": "X32P_MUX_SEL",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "1: use RTC GPIO. 0: use digital GPIO."
+            },
+            {
+                "name": "X32P_RUE",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "Pull-down enable of the pad. 1: internal pull-down enabled. 0: internal pull-down disabled."
+            },
+            {
+                "name": "X32P_RDE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "Pull-up enable of the pad. 1: internal pull-up enabled. 0: internal pull-up disabled."
+            },
+            {
+                "name": "X32P_DRV",
+                "bitOffset": 29,
+                "bitWidth": 2,
+                "desc": "Select the drive strength of the pad. 0: ~5 mA. 1: ~10 mA. 2: ~20 mA. 3: ~40 mA."
+            }
+        ]
+    },
+    "42180": {
+        "name": "XTAL_32N_PAD",
+        "address": 42180,
+        "size": 32,
+        "access": "",
+        "desc": "32KHz crystal N-pad configuration register",
+        "fields": [
+            {
+                "name": "X32N_FUN_IE",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Input enable in normal execution."
+            },
+            {
+                "name": "X32N_SLP_OE",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "Output enable in sleep mode."
+            },
+            {
+                "name": "X32N_SLP_IE",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "Input enable in sleep mode."
+            },
+            {
+                "name": "X32N_SLP_SEL",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "1: enable sleep mode. 0: no sleep mode."
+            },
+            {
+                "name": "X32N_FUN_SEL",
+                "bitOffset": 17,
+                "bitWidth": 2,
+                "desc": "Function selection."
+            },
+            {
+                "name": "X32N_MUX_SEL",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "1: use RTC GPIO. 0: use digital GPIO."
+            },
+            {
+                "name": "X32N_RUE",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "Pull-down enable of the pad. 1: internal pull-down enabled. 0: internal pull-down disabled."
+            },
+            {
+                "name": "X32N_RDE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "Pull-up enable of the pad. 1: internal pull-up enabled. 0: internal pull-up disabled."
+            },
+            {
+                "name": "X32N_DRV",
+                "bitOffset": 29,
+                "bitWidth": 2,
+                "desc": "Select the drive strength of the pad. 0: ~5 mA. 1: ~10 mA. 2: ~20 mA. 3: ~40 mA."
+            }
+        ]
+    },
+    "42184": {
+        "name": "PAD_DAC1",
+        "address": 42184,
+        "size": 32,
+        "access": "",
+        "desc": "DAC1 configuration register",
+        "fields": [
+            {
+                "name": "PDAC1_DAC",
+                "bitOffset": 3,
+                "bitWidth": 8,
+                "desc": "Configure DAC_1 output when RTCIO_PDAC1_DAC_XPD_FORCE is set to 1."
+            },
+            {
+                "name": "PDAC1_XPD_DAC",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "When RTCIO_PDAC1_DAC_XPD_FORCE is set to 1, 1: enable DAC_1 output. 0: disable DAC_1 output."
+            },
+            {
+                "name": "PDAC1_DAC_XPD_FORCE",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "1: use RTCIO_PDAC1_XPD_DAC to control DAC_1 output. 0: use SAR ADC FSM to control DAC_1 output."
+            },
+            {
+                "name": "PDAC1_FUN_IE",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Input enable in normal execution."
+            },
+            {
+                "name": "PDAC1_SLP_OE",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "Output enable in sleep mode"
+            },
+            {
+                "name": "PDAC1_SLP_IE",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "Input enable in sleep mode"
+            },
+            {
+                "name": "PDAC1_SLP_SEL",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "1: enable sleep mode. 0: no sleep mode"
+            },
+            {
+                "name": "PDAC1_FUN_SEL",
+                "bitOffset": 17,
+                "bitWidth": 2,
+                "desc": "DAC_1 function selection."
+            },
+            {
+                "name": "PDAC1_MUX_SEL",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "1: use RTC GPIO. 0: use digital GPIO"
+            },
+            {
+                "name": "PDAC1_RUE",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "Pull-down enable of the pad. 1: internal pull-down enabled. 0: internal pull-down disabled."
+            },
+            {
+                "name": "PDAC1_RDE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "Pull-up enable of the pad. 1: internal pull-up enabled. 0: internal pull-up disabled."
+            },
+            {
+                "name": "PDAC1_DRV",
+                "bitOffset": 29,
+                "bitWidth": 2,
+                "desc": "Select the drive strength of the pad. 0: ~5 mA. 1: ~10 mA. 2: ~20 mA. 3: ~40 mA."
+            }
+        ]
+    },
+    "42188": {
+        "name": "PAD_DAC2",
+        "address": 42188,
+        "size": 32,
+        "access": "",
+        "desc": "DAC2 configuration register",
+        "fields": [
+            {
+                "name": "PDAC2_DAC",
+                "bitOffset": 3,
+                "bitWidth": 8,
+                "desc": "Configure DAC_2 output when RTCIO_PDAC2_DAC_XPD_FORCE is set to 1."
+            },
+            {
+                "name": "PDAC2_XPD_DAC",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "When RTCIO_PDAC2_DAC_XPD_FORCE is set to 1, 1: enable DAC_2 output. 0: disable DAC_2 output."
+            },
+            {
+                "name": "PDAC2_DAC_XPD_FORCE",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "1: use RTCIO_PDAC2_XPD_DAC to control DAC_2 output. 0: use SAR ADC FSM to control DAC_2 output."
+            },
+            {
+                "name": "PDAC2_FUN_IE",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Input enable in normal execution."
+            },
+            {
+                "name": "PDAC2_SLP_OE",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "Output enable in sleep mode."
+            },
+            {
+                "name": "PDAC2_SLP_IE",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "Input enable in sleep mode."
+            },
+            {
+                "name": "PDAC2_SLP_SEL",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "1: enable sleep mode. 0: no sleep mode."
+            },
+            {
+                "name": "PDAC2_FUN_SEL",
+                "bitOffset": 17,
+                "bitWidth": 2,
+                "desc": "DAC_2 function selection."
+            },
+            {
+                "name": "PDAC2_MUX_SEL",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "1: use RTC GPIO. 0: use digital GPIO."
+            },
+            {
+                "name": "PDAC2_RUE",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "Pull-down enable of the pad. 1: internal pull-down enabled. 0: internal pull-down disabled."
+            },
+            {
+                "name": "PDAC2_RDE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "Pull-up enable of the pad. 1: internal pull-up enabled. 0: internal pull-up disabled."
+            },
+            {
+                "name": "PDAC2_DRV",
+                "bitOffset": 29,
+                "bitWidth": 2,
+                "desc": "Select the drive strength of the pad. 0: ~5 mA: 1: ~10 mA. 2: ~20 mA. 3: ~40 mA."
+            }
+        ]
+    },
+    "42192": {
+        "name": "RTC_PAD19",
+        "address": 42192,
+        "size": 32,
+        "access": "",
+        "desc": "Touch pad 19 configuration register",
+        "fields": [
+            {
+                "name": "FUN_IE",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Input enable in normal execution."
+            },
+            {
+                "name": "SLP_OE",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "Output enable in sleep mode."
+            },
+            {
+                "name": "SLP_IE",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "Input enable in sleep mode."
+            },
+            {
+                "name": "SLP_SEL",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "1: enable sleep mode. 0: no sleep mode"
+            },
+            {
+                "name": "FUN_SEL",
+                "bitOffset": 17,
+                "bitWidth": 2,
+                "desc": "Function selection."
+            },
+            {
+                "name": "MUX_SEL",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "1: use RTC GPIO. 0: use digital GPIO."
+            },
+            {
+                "name": "RUE",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "Pull-down enable of the pad. 1: internal pull-down enabled. 0: internal pull-down disabled."
+            },
+            {
+                "name": "RDE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "Pull-up enable of the pad. 1: internal pull-up enabled. 0: internal pull-up disabled."
+            },
+            {
+                "name": "DRV",
+                "bitOffset": 29,
+                "bitWidth": 2,
+                "desc": "Select the drive strength of the pad. 0: ~5 mA. 1: ~10 mA. 2: ~20 mA. 3: ~40 mA."
+            }
+        ]
+    },
+    "42196": {
+        "name": "RTC_PAD20",
+        "address": 42196,
+        "size": 32,
+        "access": "",
+        "desc": "Touch pad 20 configuration register",
+        "fields": [
+            {
+                "name": "FUN_IE",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Input enable in normal execution."
+            },
+            {
+                "name": "SLP_OE",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "Output enable in sleep mode."
+            },
+            {
+                "name": "SLP_IE",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "Input enable in sleep mode."
+            },
+            {
+                "name": "SLP_SEL",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "1: enable sleep mode. 0: no sleep mode."
+            },
+            {
+                "name": "FUN_SEL",
+                "bitOffset": 17,
+                "bitWidth": 2,
+                "desc": "Function selection."
+            },
+            {
+                "name": "MUX_SEL",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "1: use RTC GPIO. 0: use digital GPIO."
+            },
+            {
+                "name": "RUE",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "Pull-down enable of the pad. 1: internal pull-down enabled. 0: internal pull-down disabled."
+            },
+            {
+                "name": "RDE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "Pull-up enable of the pad. 1: internal pull-up enabled. 0: internal pull-up disabled."
+            },
+            {
+                "name": "DRV",
+                "bitOffset": 29,
+                "bitWidth": 2,
+                "desc": "Select the drive strength of the pad. 0: ~5 mA. 1: ~10 mA. 2: ~20 mA. 3: ~40 mA."
+            }
+        ]
+    },
+    "42200": {
+        "name": "RTC_PAD21",
+        "address": 42200,
+        "size": 32,
+        "access": "",
+        "desc": "Touch pad 21 configuration register",
+        "fields": [
+            {
+                "name": "FUN_IE",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Input enable in normal execution."
+            },
+            {
+                "name": "SLP_OE",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "Output enable in sleep mode."
+            },
+            {
+                "name": "SLP_IE",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "Input enable in sleep mode."
+            },
+            {
+                "name": "SLP_SEL",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "1: enable sleep mode. 0: no sleep mode."
+            },
+            {
+                "name": "FUN_SEL",
+                "bitOffset": 17,
+                "bitWidth": 2,
+                "desc": "Function selection."
+            },
+            {
+                "name": "MUX_SEL",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "1: use RTC GPIO. 0: use digital GPIO."
+            },
+            {
+                "name": "RUE",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "Pull-down enable of the pad. 1: internal pull-down enabled. 0: internal pull-down disabled."
+            },
+            {
+                "name": "RDE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "Pull-up enable of the pad. 1: internal pull-up enabled. 0: internal pull-up disabled."
+            },
+            {
+                "name": "DRV",
+                "bitOffset": 29,
+                "bitWidth": 2,
+                "desc": "Select the drive strength of the pad. 0: ~5 mA. 1: ~10 mA. 2: ~20 mA. 3: ~40 mA."
+            }
+        ]
+    },
+    "42204": {
+        "name": "EXT_WAKEUP0",
+        "address": 42204,
+        "size": 32,
+        "access": "",
+        "desc": "External wake up configuration register",
+        "fields": [
+            {
+                "name": "SEL",
+                "bitOffset": 27,
+                "bitWidth": 5,
+                "desc": "GPIO[0-17] can be used to wake up the chip when the chip is in the sleep mode. This register prompts the pad source to wake up the chip when the latter is indeep/light sleep mode. \n0: select GPIO0; 1: select GPIO2, etc"
+            }
+        ]
+    },
+    "42208": {
+        "name": "XTL_EXT_CTR",
+        "address": 42208,
+        "size": 32,
+        "access": "",
+        "desc": "Crystal power down enable GPIO source",
+        "fields": [
+            {
+                "name": "SEL",
+                "bitOffset": 27,
+                "bitWidth": 5,
+                "desc": "Select the external crystal power down enable source to get into sleep mode. 0: select GPIO0. 1: select GPIO1, etc. The input value on this pin XOR RTC_CNTL_EXT_XTL_CONF_REG[30] is the crystal power down enable signal."
+            }
+        ]
+    },
+    "42212": {
+        "name": "SAR_I2C_IO",
+        "address": 42212,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C pad selection",
+        "fields": [
+            {
+                "name": "SAR_DEBUG_BIT_SEL",
+                "bitOffset": 23,
+                "bitWidth": 5,
+                "desc": ""
+            },
+            {
+                "name": "SAR_I2C_SCL_SEL",
+                "bitOffset": 28,
+                "bitWidth": 2,
+                "desc": "Selects a pad the RTC I2C SCL signal connects to. 0: use TOUCH PAD0. 1: use TOUCH PAD2."
+            },
+            {
+                "name": "SAR_I2C_SDA_SEL",
+                "bitOffset": 30,
+                "bitWidth": 2,
+                "desc": "Selects a pad the RTC I2C SDA signal connects to. 0: use TOUCH PAD1. 1: use TOUCH PAD3."
+            }
+        ]
+    },
+    "42216": {
+        "name": "RTC_IO_TOUCH_CTRL",
+        "address": 42216,
+        "size": 32,
+        "access": "",
+        "desc": "Touch control register",
+        "fields": [
+            {
+                "name": "IO_TOUCH_BUFSEL",
+                "bitOffset": 0,
+                "bitWidth": 4,
+                "desc": ""
+            },
+            {
+                "name": "IO_TOUCH_BUFMODE",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": ""
+            }
+        ]
+    },
+    "42492": {
+        "name": "RTC_IO_DATE",
+        "address": 42492,
+        "size": 32,
+        "access": "",
+        "desc": "Version control register",
+        "fields": [
+            {
+                "name": "IO_DATE",
+                "bitOffset": 0,
+                "bitWidth": 28,
+                "desc": "Version control register"
+            }
+        ]
+    },
+    "33016": {
+        "name": "ULP_CP_TIMER",
+        "address": 33016,
+        "size": 32,
+        "access": "",
+        "desc": "Configure coprocessor timer",
+        "fields": [
+            {
+                "name": "ULP_CP_PC_INIT",
+                "bitOffset": 0,
+                "bitWidth": 11,
+                "desc": "ULP coprocessor PC initial address"
+            },
+            {
+                "name": "ULP_CP_GPIO_WAKEUP_ENA",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "Enable the option of ULP coprocessor woken up by\nRTC GPIO"
+            },
+            {
+                "name": "ULP_CP_GPIO_WAKEUP_CLR",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "Disable the option of ULP coprocessor woken up by\nRTC GPIO"
+            },
+            {
+                "name": "ULP_CP_SLP_TIMER_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "ULP coprocessor timer enable bit. 0: Disable hardware\nTimer. 1: Enable hardware timer"
+            }
+        ]
+    },
+    "33020": {
+        "name": "ULP_CP_CTRL",
+        "address": 33020,
+        "size": 32,
+        "access": "",
+        "desc": "ULP-FSM configuration register",
+        "fields": [
+            {
+                "name": "ULP_CP_MEM_ADDR_INIT",
+                "bitOffset": 0,
+                "bitWidth": 11,
+                "desc": ""
+            },
+            {
+                "name": "ULP_CP_MEM_ADDR_SIZE",
+                "bitOffset": 11,
+                "bitWidth": 11,
+                "desc": ""
+            },
+            {
+                "name": "ULP_CP_MEM_OFFSET_CLR",
+                "bitOffset": 22,
+                "bitWidth": 1,
+                "desc": ""
+            },
+            {
+                "name": "ULP_CP_CLK_FO",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "ULP-FSM clock force on"
+            },
+            {
+                "name": "ULP_CP_RESET",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "ULP-FSM clock software reset"
+            },
+            {
+                "name": "ULP_CP_FORCE_START_TOP",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "Write 1 to start ULP-FSM by software"
+            },
+            {
+                "name": "ULP_CP_START_TOP",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "Write 1 to start ULP-FSM"
+            }
+        ]
+    },
+    "33024": {
+        "name": "COCPU_CTRL",
+        "address": 33024,
+        "size": 32,
+        "access": "",
+        "desc": "ULP-RISCV configuration register",
+        "fields": [
+            {
+                "name": "COCPU_CLK_FO",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "ULP-RISCV clock force on"
+            },
+            {
+                "name": "COCPU_START_2_RESET_DIS",
+                "bitOffset": 1,
+                "bitWidth": 6,
+                "desc": "Time from ULP-RISCV startup to pull down reset"
+            },
+            {
+                "name": "COCPU_START_2_INTR_EN",
+                "bitOffset": 7,
+                "bitWidth": 6,
+                "desc": "Time from ULP-RISCV startup to send out\nRISCV_START_INT interrupt"
+            },
+            {
+                "name": "COCPU_SHUT",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Shut down ULP-RISCV"
+            },
+            {
+                "name": "COCPU_SHUT_2_CLK_DIS",
+                "bitOffset": 14,
+                "bitWidth": 8,
+                "desc": "Time from shut down ULP-RISCV to disable clock"
+            },
+            {
+                "name": "COCPU_SHUT_RESET_EN",
+                "bitOffset": 22,
+                "bitWidth": 1,
+                "desc": "This bit is used to reset ULP-RISCV"
+            },
+            {
+                "name": "COCPU_SEL",
+                "bitOffset": 23,
+                "bitWidth": 1,
+                "desc": "0: select ULP-RISCV. 1: select ULP-FSM"
+            },
+            {
+                "name": "COCPU_DONE_FORCE",
+                "bitOffset": 24,
+                "bitWidth": 1,
+                "desc": "0: select ULP-FSM DONE signal. 1: select ULP-RISCV DONE\nsignal"
+            },
+            {
+                "name": "COCPU_DONE",
+                "bitOffset": 25,
+                "bitWidth": 1,
+                "desc": "DONE signal. Write 1 to this bit, ULP-RISCV will go to HALT and the\ntimer starts counting"
+            },
+            {
+                "name": "COCPU_SW_INT_TRIGGER",
+                "bitOffset": 26,
+                "bitWidth": 1,
+                "desc": "Trigger ULP-RISCV register interrupt"
+            }
+        ]
+    },
+    "33072": {
+        "name": "ULP_CP_TIMER_1",
+        "address": 33072,
+        "size": 32,
+        "access": "",
+        "desc": "Configure sleep cycle of the timer",
+        "fields": [
+            {
+                "name": "ULP_CP_TIMER_SLP_CYCLE",
+                "bitOffset": 8,
+                "bitWidth": 24,
+                "desc": "Set sleep cycles for ULP coprocessor timer"
+            }
+        ]
+    },
+    "60416": {
+        "name": "SCL_LOW",
+        "address": 60416,
+        "size": 32,
+        "access": "",
+        "desc": "Configure the low level width of SCL",
+        "fields": [
+            {
+                "name": "PERIOD",
+                "bitOffset": 0,
+                "bitWidth": 20,
+                "desc": "This register is used to configure how many clock cycles SCL\nremains low."
+            }
+        ]
+    },
+    "60420": {
+        "name": "CTRL",
+        "address": 60420,
+        "size": 32,
+        "access": "",
+        "desc": "Transmission setting",
+        "fields": [
+            {
+                "name": "SDA_FORCE_OUT",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "SDA output mode. 0: open drain. 1: push pull."
+            },
+            {
+                "name": "SCL_FORCE_OUT",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "SCL output mode. 0: open drain. 1: push pull."
+            },
+            {
+                "name": "MS_MODE",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Set this bit to configure RTC I\u00b2C as a master."
+            },
+            {
+                "name": "TRANS_START",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "Set this bit to 1, RTC I2C starts sending data."
+            },
+            {
+                "name": "TX_LSB_FIRST",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "This bit is used to control the sending mode. 0: send data from the most\nsignificant bit. 1: send data from the least significant bit."
+            },
+            {
+                "name": "RX_LSB_FIRST",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "This bit is used to control the storage mode for received data. 0: receive\ndata from the most significant bit. 1: receive data from the least significant bit."
+            },
+            {
+                "name": "CLK_GATE_EN",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "RTC I\u00b2C controller clock gate."
+            },
+            {
+                "name": "RESET",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "RTC I\u00b2C software reset."
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "rtc i2c reg clk gating"
+            }
+        ]
+    },
+    "60424": {
+        "name": "STATUS",
+        "address": 60424,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C status",
+        "fields": [
+            {
+                "name": "ACK_REC",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "The received ACK value. 0: ACK. 1: NACK."
+            },
+            {
+                "name": "SLAVE_RW",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "0: master writes to slave. 1: master reads from slave."
+            },
+            {
+                "name": "ARB_LOST",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "When the RTC I2C loses control of SCL line, the register changes to 1."
+            },
+            {
+                "name": "BUS_BUSY",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "0: RTC I2C bus is in idle state. 1: RTC I2C bus is busy transferring data."
+            },
+            {
+                "name": "SLAVE_ADDRESSED",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "When the address sent by the master matches the address of the\nslave, then this bit will be set."
+            },
+            {
+                "name": "BYTE_TRANS",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "This field changes to 1 when one byte is transferred."
+            },
+            {
+                "name": "OP_CNT",
+                "bitOffset": 6,
+                "bitWidth": 2,
+                "desc": "Indicate which operation is working."
+            },
+            {
+                "name": "SHIFT",
+                "bitOffset": 16,
+                "bitWidth": 8,
+                "desc": "shifter content"
+            },
+            {
+                "name": "SCL_MAIN_STATE_LAST",
+                "bitOffset": 24,
+                "bitWidth": 3,
+                "desc": "i2c last main status"
+            },
+            {
+                "name": "SCL_STATE_LAST",
+                "bitOffset": 28,
+                "bitWidth": 3,
+                "desc": "scl last status"
+            }
+        ]
+    },
+    "60428": {
+        "name": "TO",
+        "address": 60428,
+        "size": 32,
+        "access": "",
+        "desc": "Configure RTC I2C timeout",
+        "fields": [
+            {
+                "name": "TIME_OUT",
+                "bitOffset": 0,
+                "bitWidth": 20,
+                "desc": "Timeout threshold"
+            }
+        ]
+    },
+    "60432": {
+        "name": "SLAVE_ADDR",
+        "address": 60432,
+        "size": 32,
+        "access": "",
+        "desc": "Configure slave address",
+        "fields": [
+            {
+                "name": "SLAVE_ADDR",
+                "bitOffset": 0,
+                "bitWidth": 15,
+                "desc": "slave address"
+            },
+            {
+                "name": "ADDR_10BIT_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "This field is used to enable the slave 10-bit addressing mode."
+            }
+        ]
+    },
+    "60436": {
+        "name": "SCL_HIGH",
+        "address": 60436,
+        "size": 32,
+        "access": "",
+        "desc": "Configure the high level width of SCL",
+        "fields": [
+            {
+                "name": "PERIOD",
+                "bitOffset": 0,
+                "bitWidth": 20,
+                "desc": "This register is used to configure how many cycles SCL remains high."
+            }
+        ]
+    },
+    "60440": {
+        "name": "SDA_DUTY",
+        "address": 60440,
+        "size": 32,
+        "access": "",
+        "desc": "Configure the SDA hold time after a negative\nSCL edge",
+        "fields": [
+            {
+                "name": "NUM",
+                "bitOffset": 0,
+                "bitWidth": 20,
+                "desc": "The number of clock cycles between the SDA switch and the falling\nedge of SCL."
+            }
+        ]
+    },
+    "60444": {
+        "name": "SCL_START_PERIOD",
+        "address": 60444,
+        "size": 32,
+        "access": "",
+        "desc": "Configure the delay between the SDA and SCL\nnegative edge for a start condition",
+        "fields": [
+            {
+                "name": "SCL_START_PERIOD",
+                "bitOffset": 0,
+                "bitWidth": 20,
+                "desc": "Number of clock cycles to wait after generating a start condition."
+            }
+        ]
+    },
+    "60448": {
+        "name": "SCL_STOP_PERIOD",
+        "address": 60448,
+        "size": 32,
+        "access": "",
+        "desc": "Configure the delay between SDA and SCL positive edge for a stop condition",
+        "fields": [
+            {
+                "name": "SCL_STOP_PERIOD",
+                "bitOffset": 0,
+                "bitWidth": 20,
+                "desc": "Number of clock cycles to wait before generating a stop condition."
+            }
+        ]
+    },
+    "60452": {
+        "name": "INT_CLR",
+        "address": 60452,
+        "size": 32,
+        "access": "",
+        "desc": "Clear RTC I2C interrupt",
+        "fields": [
+            {
+                "name": "SLAVE_TRAN_COMP_INT_CLR",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_SLAVE_TRAN_COMP_INT interrupt clear bit"
+            },
+            {
+                "name": "ARBITRATION_LOST_INT_CLR",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_ARBITRATION_LOST_INT interrupt clear bit"
+            },
+            {
+                "name": "MASTER_TRAN_COMP_INT_CLR",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_MASTER_TRAN_COMP_INT interrupt\nclear bit"
+            },
+            {
+                "name": "TRANS_COMPLETE_INT_CLR",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TRANS_COMPLETE_INT interrupt clear bit"
+            },
+            {
+                "name": "TIME_OUT_INT_CLR",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TIME_OUT_INT interrupt clear bit"
+            },
+            {
+                "name": "ACK_ERR_INT_CLR",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_ACK_ERR_INT interrupt clear bit"
+            },
+            {
+                "name": "RX_DATA_INT_CLR",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_RX_DATA_INT interrupt clear bit"
+            },
+            {
+                "name": "TX_DATA_INT_CLR",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TX_DATA_INT interrupt clear bit"
+            },
+            {
+                "name": "DETECT_START_INT_CLR",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_DETECT_START_INT interrupt clear bit"
+            }
+        ]
+    },
+    "60456": {
+        "name": "INT_RAW",
+        "address": 60456,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C raw interrupt",
+        "fields": [
+            {
+                "name": "SLAVE_TRAN_COMP_INT_RAW",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_SLAVE_TRAN_COMP_INT interrupt raw bit"
+            },
+            {
+                "name": "ARBITRATION_LOST_INT_RAW",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_ARBITRATION_LOST_INT interrupt raw bit"
+            },
+            {
+                "name": "MASTER_TRAN_COMP_INT_RAW",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_MASTER_TRAN_COMP_INT interrupt raw bit"
+            },
+            {
+                "name": "TRANS_COMPLETE_INT_RAW",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TRANS_COMPLETE_INT interrupt raw bit"
+            },
+            {
+                "name": "TIME_OUT_INT_RAW",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TIME_OUT_INT interrupt raw bit"
+            },
+            {
+                "name": "ACK_ERR_INT_RAW",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_ACK_ERR_INT interrupt raw bit"
+            },
+            {
+                "name": "RX_DATA_INT_RAW",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_RX_DATA_INT interrupt raw bit"
+            },
+            {
+                "name": "TX_DATA_INT_RAW",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TX_DATA_INT interrupt raw bit"
+            },
+            {
+                "name": "DETECT_START_INT_RAW",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_DETECT_START_INT interrupt raw bit"
+            }
+        ]
+    },
+    "60460": {
+        "name": "INT_ST",
+        "address": 60460,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C interrupt status",
+        "fields": [
+            {
+                "name": "SLAVE_TRAN_COMP_INT_ST",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_SLAVE_TRAN_COMP_INT interrupt status bit"
+            },
+            {
+                "name": "ARBITRATION_LOST_INT_ST",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_ARBITRATION_LOST_INT interrupt status bit"
+            },
+            {
+                "name": "MASTER_TRAN_COMP_INT_ST",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_MASTER_TRAN_COMP_INT interrupt status bit"
+            },
+            {
+                "name": "TRANS_COMPLETE_INT_ST",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TRANS_COMPLETE_INT interrupt status bit"
+            },
+            {
+                "name": "TIME_OUT_INT_ST",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TIME_OUT_INT interrupt status bit"
+            },
+            {
+                "name": "ACK_ERR_INT_ST",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_ACK_ERR_INT interrupt status bit"
+            },
+            {
+                "name": "RX_DATA_INT_ST",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_RX_DATA_INT interrupt status bit"
+            },
+            {
+                "name": "TX_DATA_INT_ST",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TX_DATA_INT interrupt status bit"
+            },
+            {
+                "name": "DETECT_START_INT_ST",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_DETECT_START_INT interrupt status bit"
+            }
+        ]
+    },
+    "60464": {
+        "name": "INT_ENA",
+        "address": 60464,
+        "size": 32,
+        "access": "",
+        "desc": "Enable RTC I2C interrupt",
+        "fields": [
+            {
+                "name": "SLAVE_TRAN_COMP_INT_ENA",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_SLAVE_TRAN_COMP_INT interrupt enable bit"
+            },
+            {
+                "name": "ARBITRATION_LOST_INT_ENA",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_ARBITRATION_LOST_INT interrupt enable bit"
+            },
+            {
+                "name": "MASTER_TRAN_COMP_INT_ENA",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_MASTER_TRAN_COMP_INT interrupt enable bit"
+            },
+            {
+                "name": "TRANS_COMPLETE_INT_ENA",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TRANS_COMPLETE_INT interrupt enable bit"
+            },
+            {
+                "name": "TIME_OUT_INT_ENA",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TIME_OUT_INT interrupt enable bit"
+            },
+            {
+                "name": "ACK_ERR_INT_ENA",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_ACK_ERR_INT interrupt enable bit"
+            },
+            {
+                "name": "RX_DATA_INT_ENA",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_RX_DATA_INT interrupt enable bit"
+            },
+            {
+                "name": "TX_DATA_INT_ENA",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_TX_DATA_INT interrupt enable bit"
+            },
+            {
+                "name": "DETECT_START_INT_ENA",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "RTC_I2C_DETECT_START_INT interrupt enable bit"
+            }
+        ]
+    },
+    "60468": {
+        "name": "DATA",
+        "address": 60468,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C read data",
+        "fields": [
+            {
+                "name": "RDATA",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "Data received"
+            },
+            {
+                "name": "SLAVE_TX_DATA",
+                "bitOffset": 8,
+                "bitWidth": 8,
+                "desc": "The data sent by slave"
+            },
+            {
+                "name": "DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "RTC I2C transmission is done."
+            }
+        ]
+    },
+    "60472": {
+        "name": "CMD0",
+        "address": 60472,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 0",
+        "fields": [
+            {
+                "name": "COMMAND0",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 0. For more information, please refer to the register\nI2C_COMD0_REG in Chapter I\u00b2C Controller"
+            },
+            {
+                "name": "COMMAND0_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 0 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60476": {
+        "name": "CMD1",
+        "address": 60476,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 1",
+        "fields": [
+            {
+                "name": "COMMAND1",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 1. For more information, please refer to the register\nI2C_COMD1_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND1_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 1 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60480": {
+        "name": "CMD2",
+        "address": 60480,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 2",
+        "fields": [
+            {
+                "name": "COMMAND2",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 2. For more information, please refer to the register\nI2C_COMD2_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND2_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 2 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60484": {
+        "name": "CMD3",
+        "address": 60484,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 3",
+        "fields": [
+            {
+                "name": "COMMAND3",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 3. For more information, please refer to the register\nI2C_COMD3_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND3_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 3 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60488": {
+        "name": "CMD4",
+        "address": 60488,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 4",
+        "fields": [
+            {
+                "name": "COMMAND4",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 4. For more information, please refer to the register\nI2C_COMD4_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND4_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 4 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60492": {
+        "name": "CMD5",
+        "address": 60492,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 5",
+        "fields": [
+            {
+                "name": "COMMAND5",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 5. For more information, please refer to the register\nI2C_COMD5_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND5_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 5 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60496": {
+        "name": "CMD6",
+        "address": 60496,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 6",
+        "fields": [
+            {
+                "name": "COMMAND6",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 6. For more information, please refer to the register\nI2C_COMD6_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND6_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 6 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60500": {
+        "name": "CMD7",
+        "address": 60500,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 7",
+        "fields": [
+            {
+                "name": "COMMAND7",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 7. For more information, please refer to the register\nI2C_COMD7_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND7_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 7 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60504": {
+        "name": "CMD8",
+        "address": 60504,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 8",
+        "fields": [
+            {
+                "name": "COMMAND8",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 8. For more information, please refer to the register\nI2C_COMD8_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND8_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 8 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60508": {
+        "name": "CMD9",
+        "address": 60508,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 9",
+        "fields": [
+            {
+                "name": "COMMAND9",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 9. For more information, please refer to the register\nI2C_COMD9_REG in Chapter I\u00b2C Controller"
+            },
+            {
+                "name": "COMMAND9_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 9 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60512": {
+        "name": "CMD10",
+        "address": 60512,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 10",
+        "fields": [
+            {
+                "name": "COMMAND10",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 10. For more information, please refer to the register\nI2C_COMD10_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND10_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 10 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60516": {
+        "name": "CMD11",
+        "address": 60516,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 11",
+        "fields": [
+            {
+                "name": "COMMAND11",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 11. For more information, please refer to the register\nI2C_COMD11_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND11_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 11 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60520": {
+        "name": "CMD12",
+        "address": 60520,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 12",
+        "fields": [
+            {
+                "name": "COMMAND12",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 12. For more information, please refer to the register\nI2C_COMD12_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND12_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 12 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60524": {
+        "name": "CMD13",
+        "address": 60524,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 13",
+        "fields": [
+            {
+                "name": "COMMAND13",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 13. For more information, please refer to the register\nI2C_COMD13_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND13_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 13 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60528": {
+        "name": "CMD14",
+        "address": 60528,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 14",
+        "fields": [
+            {
+                "name": "COMMAND14",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 14. For more information, please refer to the register\nI2C_COMD14_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND14_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 14 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60532": {
+        "name": "CMD15",
+        "address": 60532,
+        "size": 32,
+        "access": "",
+        "desc": "RTC I2C Command 15",
+        "fields": [
+            {
+                "name": "COMMAND15",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "Content of command 15. For more information, please refer to the register\nI2C_COMD15_REG in Chapter I\u00b2C Controller."
+            },
+            {
+                "name": "COMMAND15_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 15 is done, this bit changes to 1."
+            }
+        ]
+    },
+    "60668": {
+        "name": "DATE",
+        "address": 60668,
+        "size": 32,
+        "access": "",
+        "desc": "Version control register",
+        "fields": [
+            {
+                "name": "DATE",
+                "bitOffset": 0,
+                "bitWidth": 28,
+                "desc": "Version control register"
+            }
+        ]
+    },
+    "51264": {
+        "name": "SAR_SLAVE_ADDR1",
+        "address": 51264,
+        "size": 32,
+        "access": "",
+        "desc": "Configure slave addresses 0-1 of RTC I2C",
+        "fields": [
+            {
+                "name": "I2C_SLAVE_ADDR1",
+                "bitOffset": 0,
+                "bitWidth": 11,
+                "desc": "RTC I2C slave address 1"
+            },
+            {
+                "name": "I2C_SLAVE_ADDR0",
+                "bitOffset": 11,
+                "bitWidth": 11,
+                "desc": "RTC I2C slave address 0"
+            },
+            {
+                "name": "MEAS_STATUS",
+                "bitOffset": 22,
+                "bitWidth": 8,
+                "desc": ""
+            }
+        ]
+    },
+    "51268": {
+        "name": "SAR_SLAVE_ADDR2",
+        "address": 51268,
+        "size": 32,
+        "access": "",
+        "desc": "Configure slave addresses 2-3 of RTC I2C",
+        "fields": [
+            {
+                "name": "I2C_SLAVE_ADDR3",
+                "bitOffset": 0,
+                "bitWidth": 11,
+                "desc": "RTC I2C slave address 3"
+            },
+            {
+                "name": "I2C_SLAVE_ADDR2",
+                "bitOffset": 11,
+                "bitWidth": 11,
+                "desc": "RTC I2C slave address 2"
+            }
+        ]
+    },
+    "51272": {
+        "name": "SAR_SLAVE_ADDR3",
+        "address": 51272,
+        "size": 32,
+        "access": "",
+        "desc": "Configure slave addresses 4-5 of RTC I2C",
+        "fields": [
+            {
+                "name": "I2C_SLAVE_ADDR5",
+                "bitOffset": 0,
+                "bitWidth": 11,
+                "desc": "RTC I2C slave address 5"
+            },
+            {
+                "name": "I2C_SLAVE_ADDR4",
+                "bitOffset": 11,
+                "bitWidth": 11,
+                "desc": "RTC I2C slave address 4"
+            }
+        ]
+    },
+    "51276": {
+        "name": "SAR_SLAVE_ADDR4",
+        "address": 51276,
+        "size": 32,
+        "access": "",
+        "desc": "Configure slave addresses 6-7 of RTC I2C",
+        "fields": [
+            {
+                "name": "I2C_SLAVE_ADDR7",
+                "bitOffset": 0,
+                "bitWidth": 11,
+                "desc": "RTC I2C slave address 7"
+            },
+            {
+                "name": "I2C_SLAVE_ADDR6",
+                "bitOffset": 11,
+                "bitWidth": 11,
+                "desc": "RTC I2C slave address 6"
+            }
+        ]
+    },
+    "51288": {
+        "name": "SAR_I2C_CTRL",
+        "address": 51288,
+        "size": 32,
+        "access": "",
+        "desc": "Configure RTC I2C transmission",
+        "fields": [
+            {
+                "name": "SAR_I2C_CTRL",
+                "bitOffset": 0,
+                "bitWidth": 28,
+                "desc": "RTC I2C control data. Active only when SENS_SAR_I2C_START_FORCE =\n1."
+            },
+            {
+                "name": "SAR_I2C_START",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "Start RTC I2C. Active only when SENS_SAR_I2C_START_FORCE = 1"
+            },
+            {
+                "name": "SAR_I2C_START_FORCE",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "0: RTC I2C started by FSM. 1: RTC I2C started by software."
+            }
+        ]
+    },
+    "51496": {
+        "name": "SAR_COCPU_INT_RAW",
+        "address": 51496,
+        "size": 32,
+        "access": "",
+        "desc": "Interrupt raw bit of ULP-RISCV",
+        "fields": [
+            {
+                "name": "COCPU_TOUCH_DONE_INT_RAW",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "TOUCH_DONE_INT interrupt raw bit"
+            },
+            {
+                "name": "COCPU_TOUCH_INACTIVE_INT_RAW",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "TOUCH_INACTIVE_INT interrupt raw bit"
+            },
+            {
+                "name": "COCPU_TOUCH_ACTIVE_INT_RAW",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "TOUCH_ACTIVE_INT interrupt raw bit"
+            },
+            {
+                "name": "COCPU_SARADC1_INT_RAW",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "SARADC1_DONE_INT interrupt raw bit"
+            },
+            {
+                "name": "COCPU_SARADC2_INT_RAW",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "SARADC2_DONE_INT interrupt raw bit"
+            },
+            {
+                "name": "COCPU_TSENS_INT_RAW",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "TSENS_DONE_INT interrupt raw bit"
+            },
+            {
+                "name": "COCPU_START_INT_RAW",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "RISCV_START_INT interrupt raw bit"
+            },
+            {
+                "name": "COCPU_SW_INT_RAW",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "SW_INT interrupt raw bit"
+            },
+            {
+                "name": "COCPU_SWD_INT_RAW",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "SWD_INT interrupt raw bit"
+            }
+        ]
+    },
+    "51500": {
+        "name": "SAR_COCPU_INT_ENA",
+        "address": 51500,
+        "size": 32,
+        "access": "",
+        "desc": "Interrupt enable bit of ULP-RISCV",
+        "fields": [
+            {
+                "name": "COCPU_TOUCH_DONE_INT_ENA",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "TOUCH_DONE_INT interrupt enable bit"
+            },
+            {
+                "name": "COCPU_TOUCH_INACTIVE_INT_ENA",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "TOUCH_INACTIVE_INT interrupt enable bit"
+            },
+            {
+                "name": "COCPU_TOUCH_ACTIVE_INT_ENA",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "TOUCH_ACTIVE_INT interrupt enable bit"
+            },
+            {
+                "name": "COCPU_SARADC1_INT_ENA",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "SARADC1_DONE_INT interrupt enable bit"
+            },
+            {
+                "name": "COCPU_SARADC2_INT_ENA",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "SARADC2_DONE_INT interrupt enable bit"
+            },
+            {
+                "name": "COCPU_TSENS_INT_ENA",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "TSENS_DONE_INT interrupt enable bit"
+            },
+            {
+                "name": "COCPU_START_INT_ENA",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "RISCV_START_INT interrupt enable bit"
+            },
+            {
+                "name": "COCPU_SW_INT_ENA",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "SW_INT interrupt enable bit"
+            },
+            {
+                "name": "COCPU_SWD_INT_ENA",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "SWD_INT interrupt enable bit"
+            }
+        ]
+    },
+    "51504": {
+        "name": "SAR_COCPU_INT_ST",
+        "address": 51504,
+        "size": 32,
+        "access": "",
+        "desc": "Interrupt status bit of ULP-RISCV",
+        "fields": [
+            {
+                "name": "COCPU_TOUCH_DONE_INT_ST",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "TOUCH_DONE_INT interrupt status bit"
+            },
+            {
+                "name": "COCPU_TOUCH_INACTIVE_INT_ST",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "TOUCH_INACTIVE_INT interrupt status bit"
+            },
+            {
+                "name": "COCPU_TOUCH_ACTIVE_INT_ST",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "TOUCH_ACTIVE_INT interrupt status bit"
+            },
+            {
+                "name": "COCPU_SARADC1_INT_ST",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "SARADC1_DONE_INT interrupt status bit"
+            },
+            {
+                "name": "COCPU_SARADC2_INT_ST",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "SARADC2_DONE_INT interrupt status bit"
+            },
+            {
+                "name": "COCPU_TSENS_INT_ST",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "TSENS_DONE_INT interrupt status bit"
+            },
+            {
+                "name": "COCPU_START_INT_ST",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "RISCV_START_INT interrupt status bit"
+            },
+            {
+                "name": "COCPU_SW_INT_ST",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "SW_INT interrupt status bit"
+            },
+            {
+                "name": "COCPU_SWD_INT_ST",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "SWD_INT interrupt status bit"
+            }
+        ]
+    },
+    "51508": {
+        "name": "SAR_COCPU_INT_CLR",
+        "address": 51508,
+        "size": 32,
+        "access": "",
+        "desc": "Interrupt clear bit of ULP-RISCV",
+        "fields": [
+            {
+                "name": "COCPU_TOUCH_DONE_INT_CLR",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "TOUCH_DONE_INT interrupt clear bit"
+            },
+            {
+                "name": "COCPU_TOUCH_INACTIVE_INT_CLR",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "TOUCH_INACTIVE_INT interrupt clear bit"
+            },
+            {
+                "name": "COCPU_TOUCH_ACTIVE_INT_CLR",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "TOUCH_ACTIVE_INT interrupt clear bit"
+            },
+            {
+                "name": "COCPU_SARADC1_INT_CLR",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "SARADC1_DONE_INT interrupt clear bit"
+            },
+            {
+                "name": "COCPU_SARADC2_INT_CLR",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "SARADC2_DONE_INT interrupt clear bit"
+            },
+            {
+                "name": "COCPU_TSENS_INT_CLR",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "TSENS_DONE_INT interrupt clear bit"
+            },
+            {
+                "name": "COCPU_START_INT_CLR",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "RISCV_START_INT interrupt clear bit"
+            },
+            {
+                "name": "COCPU_SW_INT_CLR",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "SW_INT interrupt clear bit"
+            },
+            {
+                "name": "COCPU_SWD_INT_CLR",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "SWD_INT interrupt clear bit"
+            }
+        ]
+    }
+}

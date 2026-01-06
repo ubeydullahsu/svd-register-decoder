@@ -1,0 +1,5597 @@
+{
+    "1611339776": {
+        "name": "SCL_LOW_PERIOD",
+        "address": 1611339776,
+        "size": 32,
+        "access": "",
+        "desc": "Configures the low level width of the SCL\nClock",
+        "fields": [
+            {
+                "name": "SCL_LOW_PERIOD",
+                "bitOffset": 0,
+                "bitWidth": 9,
+                "desc": "This register is used to configure for how long SCL remains low in master mode, in I2C module clock cycles."
+            }
+        ]
+    },
+    "1611339780": {
+        "name": "CTR",
+        "address": 1611339780,
+        "size": 32,
+        "access": "",
+        "desc": "Transmission setting",
+        "fields": [
+            {
+                "name": "SDA_FORCE_OUT",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "1: direct output, 0: open drain output."
+            },
+            {
+                "name": "SCL_FORCE_OUT",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "1: direct output, 0: open drain output."
+            },
+            {
+                "name": "SAMPLE_SCL_LEVEL",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "This register is used to select the sample mode.\n1: sample SDA data on the SCL low level.\n0: sample SDA data on the SCL high level."
+            },
+            {
+                "name": "RX_FULL_ACK_LEVEL",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "This register is used to configure the ACK value that need to sent by master when the rx_fifo_cnt has reached the threshold."
+            },
+            {
+                "name": "TRANS_START",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "Set this bit to start sending the data in txfifo."
+            },
+            {
+                "name": "TX_LSB_FIRST",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "This bit is used to control the sending mode for data needing to be sent. \n1: send data from the least significant bit,\n0: send data from the most significant bit."
+            },
+            {
+                "name": "RX_LSB_FIRST",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "This bit is used to control the storage mode for received data.\n1: receive data from the least significant bit,\n0: receive data from the most significant bit."
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "Reserved"
+            },
+            {
+                "name": "ARBITRATION_EN",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for arbitration_lost."
+            },
+            {
+                "name": "FSM_RST",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "This register is used to reset the scl FMS."
+            },
+            {
+                "name": "CONF_UPGATE",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "synchronization bit"
+            }
+        ]
+    },
+    "1611339784": {
+        "name": "SR",
+        "address": 1611339784,
+        "size": 32,
+        "access": "",
+        "desc": "Describe I2C work status.",
+        "fields": [
+            {
+                "name": "RESP_REC",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "The received ACK value in master mode or slave mode. 0: ACK, 1: NACK."
+            },
+            {
+                "name": "ARB_LOST",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "When the I2C controller loses control of SCL line, this register changes to 1."
+            },
+            {
+                "name": "BUS_BUSY",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "1: the I2C bus is busy transferring data, 0: the I2C bus is in idle state."
+            },
+            {
+                "name": "RXFIFO_CNT",
+                "bitOffset": 8,
+                "bitWidth": 5,
+                "desc": "This field represents the amount of data needed to be sent."
+            },
+            {
+                "name": "TXFIFO_CNT",
+                "bitOffset": 18,
+                "bitWidth": 5,
+                "desc": "This field stores the amount of received data in RAM."
+            },
+            {
+                "name": "SCL_MAIN_STATE_LAST",
+                "bitOffset": 24,
+                "bitWidth": 3,
+                "desc": "This field indicates the states of the I2C module state machine. \n0: Idle, 1: Address shift, 2: ACK address, 3: Rx data, 4: Tx data, 5: Send ACK, 6: Wait ACK"
+            },
+            {
+                "name": "SCL_STATE_LAST",
+                "bitOffset": 28,
+                "bitWidth": 3,
+                "desc": "This field indicates the states of the state machine used to produce SCL.\n0: Idle, 1: Start, 2: Negative edge, 3: Low, 4: Positive edge, 5: High, 6: Stop"
+            }
+        ]
+    },
+    "1611339788": {
+        "name": "TO",
+        "address": 1611339788,
+        "size": 32,
+        "access": "",
+        "desc": "Setting time out control for receiving data.",
+        "fields": [
+            {
+                "name": "TIME_OUT_VALUE",
+                "bitOffset": 0,
+                "bitWidth": 5,
+                "desc": "This register is used to configure the timeout for receiving a data bit in APB\nclock cycles."
+            },
+            {
+                "name": "TIME_OUT_EN",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for time out control."
+            }
+        ]
+    },
+    "1611339796": {
+        "name": "FIFO_ST",
+        "address": 1611339796,
+        "size": 32,
+        "access": "",
+        "desc": "FIFO status register.",
+        "fields": [
+            {
+                "name": "RXFIFO_RADDR",
+                "bitOffset": 0,
+                "bitWidth": 4,
+                "desc": "This is the offset address of the APB reading from rxfifo"
+            },
+            {
+                "name": "RXFIFO_WADDR",
+                "bitOffset": 5,
+                "bitWidth": 4,
+                "desc": "This is the offset address of i2c module receiving data and writing to rxfifo."
+            },
+            {
+                "name": "TXFIFO_RADDR",
+                "bitOffset": 10,
+                "bitWidth": 4,
+                "desc": "This is the offset address of i2c module reading from txfifo."
+            },
+            {
+                "name": "TXFIFO_WADDR",
+                "bitOffset": 15,
+                "bitWidth": 4,
+                "desc": "This is the offset address of APB bus writing to txfifo."
+            }
+        ]
+    },
+    "1611339800": {
+        "name": "FIFO_CONF",
+        "address": 1611339800,
+        "size": 32,
+        "access": "",
+        "desc": "FIFO configuration register.",
+        "fields": [
+            {
+                "name": "RXFIFO_WM_THRHD",
+                "bitOffset": 0,
+                "bitWidth": 4,
+                "desc": "The water mark threshold of rx FIFO in nonfifo access mode. When reg_reg_fifo_prt_en is 1 and rx FIFO counter is bigger than reg_rxfifo_wm_thrhd[3:0], reg_rxfifo_wm_int_raw bit will be valid."
+            },
+            {
+                "name": "TXFIFO_WM_THRHD",
+                "bitOffset": 5,
+                "bitWidth": 4,
+                "desc": "The water mark threshold of tx FIFO in nonfifo access mode. When reg_reg_fifo_prt_en is 1 and tx FIFO counter is smaller than reg_txfifo_wm_thrhd[3:0], reg_txfifo_wm_int_raw bit will be valid."
+            },
+            {
+                "name": "NONFIFO_EN",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable APB nonfifo access."
+            },
+            {
+                "name": "RX_FIFO_RST",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "Set this bit to reset rx-fifo."
+            },
+            {
+                "name": "TX_FIFO_RST",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Set this bit to reset tx-fifo."
+            },
+            {
+                "name": "FIFO_PRT_EN",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "The control enable bit of FIFO pointer in non-fifo access mode. This bit controls the valid bits and the interrupts of tx/rx_fifo overflow, underflow, full and empty."
+            }
+        ]
+    },
+    "1611339804": {
+        "name": "DATA",
+        "address": 1611339804,
+        "size": 32,
+        "access": "",
+        "desc": "Rx FIFO read data.",
+        "fields": [
+            {
+                "name": "FIFO_RDATA",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "The value of rx FIFO read data."
+            }
+        ]
+    },
+    "1611339808": {
+        "name": "INT_RAW",
+        "address": 1611339808,
+        "size": 32,
+        "access": "",
+        "desc": "Raw interrupt status",
+        "fields": [
+            {
+                "name": "RXFIFO_WM_INT_RAW",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_RXFIFO_WM_INT interrupt."
+            },
+            {
+                "name": "TXFIFO_WM_INT_RAW",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_TXFIFO_WM_INT interrupt."
+            },
+            {
+                "name": "RXFIFO_OVF_INT_RAW",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_RXFIFO_OVF_INT interrupt."
+            },
+            {
+                "name": "END_DETECT_INT_RAW",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for the I2C_END_DETECT_INT interrupt."
+            },
+            {
+                "name": "BYTE_TRANS_DONE_INT_RAW",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for the I2C_END_DETECT_INT interrupt."
+            },
+            {
+                "name": "ARBITRATION_LOST_INT_RAW",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for the I2C_ARBITRATION_LOST_INT interrupt."
+            },
+            {
+                "name": "MST_TXFIFO_UDF_INT_RAW",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_TRANS_COMPLETE_INT interrupt."
+            },
+            {
+                "name": "TRANS_COMPLETE_INT_RAW",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for the I2C_TRANS_COMPLETE_INT interrupt."
+            },
+            {
+                "name": "TIME_OUT_INT_RAW",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for the I2C_TIME_OUT_INT interrupt."
+            },
+            {
+                "name": "TRANS_START_INT_RAW",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for the I2C_TRANS_START_INT interrupt."
+            },
+            {
+                "name": "NACK_INT_RAW",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_SLAVE_STRETCH_INT interrupt."
+            },
+            {
+                "name": "TXFIFO_OVF_INT_RAW",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_TXFIFO_OVF_INT interrupt."
+            },
+            {
+                "name": "RXFIFO_UDF_INT_RAW",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_RXFIFO_UDF_INT  interrupt."
+            },
+            {
+                "name": "SCL_ST_TO_INT_RAW",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_SCL_ST_TO_INT interrupt."
+            },
+            {
+                "name": "SCL_MAIN_ST_TO_INT_RAW",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_SCL_MAIN_ST_TO_INT interrupt."
+            },
+            {
+                "name": "DET_START_INT_RAW",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "The raw interrupt bit for I2C_DET_START_INT interrupt."
+            }
+        ]
+    },
+    "1611339812": {
+        "name": "INT_CLR",
+        "address": 1611339812,
+        "size": 32,
+        "access": "",
+        "desc": "Interrupt clear bits",
+        "fields": [
+            {
+                "name": "RXFIFO_WM_INT_CLR",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_RXFIFO_WM_INT interrupt."
+            },
+            {
+                "name": "TXFIFO_WM_INT_CLR",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_TXFIFO_WM_INT interrupt."
+            },
+            {
+                "name": "RXFIFO_OVF_INT_CLR",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_RXFIFO_OVF_INT interrupt."
+            },
+            {
+                "name": "END_DETECT_INT_CLR",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the I2C_END_DETECT_INT interrupt."
+            },
+            {
+                "name": "BYTE_TRANS_DONE_INT_CLR",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the I2C_END_DETECT_INT interrupt."
+            },
+            {
+                "name": "ARBITRATION_LOST_INT_CLR",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the I2C_ARBITRATION_LOST_INT interrupt."
+            },
+            {
+                "name": "MST_TXFIFO_UDF_INT_CLR",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_TRANS_COMPLETE_INT interrupt."
+            },
+            {
+                "name": "TRANS_COMPLETE_INT_CLR",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the I2C_TRANS_COMPLETE_INT interrupt."
+            },
+            {
+                "name": "TIME_OUT_INT_CLR",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the I2C_TIME_OUT_INT interrupt."
+            },
+            {
+                "name": "TRANS_START_INT_CLR",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the I2C_TRANS_START_INT interrupt."
+            },
+            {
+                "name": "NACK_INT_CLR",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_SLAVE_STRETCH_INT interrupt."
+            },
+            {
+                "name": "TXFIFO_OVF_INT_CLR",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_TXFIFO_OVF_INT interrupt."
+            },
+            {
+                "name": "RXFIFO_UDF_INT_CLR",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_RXFIFO_UDF_INT  interrupt."
+            },
+            {
+                "name": "SCL_ST_TO_INT_CLR",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_SCL_ST_TO_INT interrupt."
+            },
+            {
+                "name": "SCL_MAIN_ST_TO_INT_CLR",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_SCL_MAIN_ST_TO_INT interrupt."
+            },
+            {
+                "name": "DET_START_INT_CLR",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear I2C_DET_START_INT interrupt."
+            }
+        ]
+    },
+    "1611339816": {
+        "name": "INT_ENA",
+        "address": 1611339816,
+        "size": 32,
+        "access": "",
+        "desc": "Interrupt enable bits",
+        "fields": [
+            {
+                "name": "RXFIFO_WM_INT_ENA",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_RXFIFO_WM_INT interrupt."
+            },
+            {
+                "name": "TXFIFO_WM_INT_ENA",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_TXFIFO_WM_INT interrupt."
+            },
+            {
+                "name": "RXFIFO_OVF_INT_ENA",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_RXFIFO_OVF_INT interrupt."
+            },
+            {
+                "name": "END_DETECT_INT_ENA",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for the I2C_END_DETECT_INT interrupt."
+            },
+            {
+                "name": "BYTE_TRANS_DONE_INT_ENA",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for the I2C_END_DETECT_INT interrupt."
+            },
+            {
+                "name": "ARBITRATION_LOST_INT_ENA",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for the I2C_ARBITRATION_LOST_INT interrupt."
+            },
+            {
+                "name": "MST_TXFIFO_UDF_INT_ENA",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_TRANS_COMPLETE_INT interrupt."
+            },
+            {
+                "name": "TRANS_COMPLETE_INT_ENA",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for the I2C_TRANS_COMPLETE_INT interrupt."
+            },
+            {
+                "name": "TIME_OUT_INT_ENA",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for the I2C_TIME_OUT_INT interrupt."
+            },
+            {
+                "name": "TRANS_START_INT_ENA",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for the I2C_TRANS_START_INT interrupt."
+            },
+            {
+                "name": "NACK_INT_ENA",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_SLAVE_STRETCH_INT interrupt."
+            },
+            {
+                "name": "TXFIFO_OVF_INT_ENA",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_TXFIFO_OVF_INT interrupt."
+            },
+            {
+                "name": "RXFIFO_UDF_INT_ENA",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_RXFIFO_UDF_INT  interrupt."
+            },
+            {
+                "name": "SCL_ST_TO_INT_ENA",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_SCL_ST_TO_INT interrupt."
+            },
+            {
+                "name": "SCL_MAIN_ST_TO_INT_ENA",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_SCL_MAIN_ST_TO_INT interrupt."
+            },
+            {
+                "name": "DET_START_INT_ENA",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "The interrupt enable bit for I2C_DET_START_INT interrupt."
+            }
+        ]
+    },
+    "1611339820": {
+        "name": "INT_STATUS",
+        "address": 1611339820,
+        "size": 32,
+        "access": "",
+        "desc": "Status of captured I2C communication events",
+        "fields": [
+            {
+                "name": "RXFIFO_WM_INT_ST",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_RXFIFO_WM_INT interrupt."
+            },
+            {
+                "name": "TXFIFO_WM_INT_ST",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_TXFIFO_WM_INT interrupt."
+            },
+            {
+                "name": "RXFIFO_OVF_INT_ST",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_RXFIFO_OVF_INT interrupt."
+            },
+            {
+                "name": "END_DETECT_INT_ST",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for the I2C_END_DETECT_INT interrupt."
+            },
+            {
+                "name": "BYTE_TRANS_DONE_INT_ST",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for the I2C_END_DETECT_INT interrupt."
+            },
+            {
+                "name": "ARBITRATION_LOST_INT_ST",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for the I2C_ARBITRATION_LOST_INT interrupt."
+            },
+            {
+                "name": "MST_TXFIFO_UDF_INT_ST",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_TRANS_COMPLETE_INT interrupt."
+            },
+            {
+                "name": "TRANS_COMPLETE_INT_ST",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for the I2C_TRANS_COMPLETE_INT interrupt."
+            },
+            {
+                "name": "TIME_OUT_INT_ST",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for the I2C_TIME_OUT_INT interrupt."
+            },
+            {
+                "name": "TRANS_START_INT_ST",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for the I2C_TRANS_START_INT interrupt."
+            },
+            {
+                "name": "NACK_INT_ST",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_SLAVE_STRETCH_INT interrupt."
+            },
+            {
+                "name": "TXFIFO_OVF_INT_ST",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_TXFIFO_OVF_INT interrupt."
+            },
+            {
+                "name": "RXFIFO_UDF_INT_ST",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_RXFIFO_UDF_INT  interrupt."
+            },
+            {
+                "name": "SCL_ST_TO_INT_ST",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_SCL_ST_TO_INT interrupt."
+            },
+            {
+                "name": "SCL_MAIN_ST_TO_INT_ST",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_SCL_MAIN_ST_TO_INT interrupt."
+            },
+            {
+                "name": "DET_START_INT_ST",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "The masked interrupt status bit for I2C_DET_START_INT interrupt."
+            }
+        ]
+    },
+    "1611339824": {
+        "name": "SDA_HOLD",
+        "address": 1611339824,
+        "size": 32,
+        "access": "",
+        "desc": "Configures the hold time after a negative SCL edge.",
+        "fields": [
+            {
+                "name": "TIME",
+                "bitOffset": 0,
+                "bitWidth": 9,
+                "desc": "This register is used to configure the time to hold the data after the negative\nedge of SCL, in I2C module clock cycles."
+            }
+        ]
+    },
+    "1611339828": {
+        "name": "SDA_SAMPLE",
+        "address": 1611339828,
+        "size": 32,
+        "access": "",
+        "desc": "Configures the sample time after a positive SCL edge.",
+        "fields": [
+            {
+                "name": "TIME",
+                "bitOffset": 0,
+                "bitWidth": 9,
+                "desc": "This register is used to configure for how long SDA is sampled, in I2C module clock cycles."
+            }
+        ]
+    },
+    "1611339832": {
+        "name": "SCL_HIGH_PERIOD",
+        "address": 1611339832,
+        "size": 32,
+        "access": "",
+        "desc": "Configures the high level width of SCL",
+        "fields": [
+            {
+                "name": "SCL_HIGH_PERIOD",
+                "bitOffset": 0,
+                "bitWidth": 9,
+                "desc": "This register is used to configure for how long SCL setup to high level and remains high in master mode, in I2C module clock cycles."
+            },
+            {
+                "name": "SCL_WAIT_HIGH_PERIOD",
+                "bitOffset": 9,
+                "bitWidth": 7,
+                "desc": "This register is used to configure for the SCL_FSM's waiting period for SCL high level in master mode, in I2C module clock cycles."
+            }
+        ]
+    },
+    "1611339840": {
+        "name": "SCL_START_HOLD",
+        "address": 1611339840,
+        "size": 32,
+        "access": "",
+        "desc": "Configures the delay between the SDA and SCL negative edge for a start condition",
+        "fields": [
+            {
+                "name": "TIME",
+                "bitOffset": 0,
+                "bitWidth": 9,
+                "desc": "This register is used to configure the time between the negative edge\nof SDA and the negative edge of SCL for a START condition, in I2C module clock cycles."
+            }
+        ]
+    },
+    "1611339844": {
+        "name": "SCL_RSTART_SETUP",
+        "address": 1611339844,
+        "size": 32,
+        "access": "",
+        "desc": "Configures the delay between the positive\nedge of SCL and the negative edge of SDA",
+        "fields": [
+            {
+                "name": "TIME",
+                "bitOffset": 0,
+                "bitWidth": 9,
+                "desc": "This register is used to configure the time between the positive\nedge of SCL and the negative edge of SDA for a RESTART condition, in I2C module clock cycles."
+            }
+        ]
+    },
+    "1611339848": {
+        "name": "SCL_STOP_HOLD",
+        "address": 1611339848,
+        "size": 32,
+        "access": "",
+        "desc": "Configures the delay after the SCL clock\nedge for a stop condition",
+        "fields": [
+            {
+                "name": "TIME",
+                "bitOffset": 0,
+                "bitWidth": 9,
+                "desc": "This register is used to configure the delay after the STOP condition,\nin I2C module clock cycles."
+            }
+        ]
+    },
+    "1611339852": {
+        "name": "SCL_STOP_SETUP",
+        "address": 1611339852,
+        "size": 32,
+        "access": "",
+        "desc": "Configures the delay between the SDA and\nSCL positive edge for a stop condition",
+        "fields": [
+            {
+                "name": "TIME",
+                "bitOffset": 0,
+                "bitWidth": 9,
+                "desc": "This register is used to configure the time between the positive edge\nof SCL and the positive edge of SDA, in I2C module clock cycles."
+            }
+        ]
+    },
+    "1611339856": {
+        "name": "FILTER_CFG",
+        "address": 1611339856,
+        "size": 32,
+        "access": "",
+        "desc": "SCL and SDA filter configuration register",
+        "fields": [
+            {
+                "name": "SCL_FILTER_THRES",
+                "bitOffset": 0,
+                "bitWidth": 4,
+                "desc": "When a pulse on the SCL input has smaller width than this register value\nin I2C module clock cycles, the I2C controller will ignore that pulse."
+            },
+            {
+                "name": "SDA_FILTER_THRES",
+                "bitOffset": 4,
+                "bitWidth": 4,
+                "desc": "When a pulse on the SDA input has smaller width than this register value\nin I2C module clock cycles, the I2C controller will ignore that pulse."
+            },
+            {
+                "name": "SCL_FILTER_EN",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "This is the filter enable bit for SCL."
+            },
+            {
+                "name": "SDA_FILTER_EN",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "This is the filter enable bit for SDA."
+            }
+        ]
+    },
+    "1611339860": {
+        "name": "CLK_CONF",
+        "address": 1611339860,
+        "size": 32,
+        "access": "",
+        "desc": "I2C CLK configuration register",
+        "fields": [
+            {
+                "name": "SCLK_DIV_NUM",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "the integral part of the fractional divisor for i2c module"
+            },
+            {
+                "name": "SCLK_DIV_A",
+                "bitOffset": 8,
+                "bitWidth": 6,
+                "desc": "the numerator of the fractional part of the fractional divisor for i2c module"
+            },
+            {
+                "name": "SCLK_DIV_B",
+                "bitOffset": 14,
+                "bitWidth": 6,
+                "desc": "the denominator of the fractional part of the fractional divisor for i2c module"
+            },
+            {
+                "name": "SCLK_SEL",
+                "bitOffset": 20,
+                "bitWidth": 1,
+                "desc": "The clock selection for i2c module:0-XTAL,1-CLK_8MHz."
+            },
+            {
+                "name": "SCLK_ACTIVE",
+                "bitOffset": 21,
+                "bitWidth": 1,
+                "desc": "The clock switch for i2c module"
+            }
+        ]
+    },
+    "1611339864": {
+        "name": "COMD0",
+        "address": 1611339864,
+        "size": 32,
+        "access": "",
+        "desc": "I2C command register 0",
+        "fields": [
+            {
+                "name": "COMMAND0",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "This is the content of command 0. It consists of three parts: \nop_code is the command, 0: RSTART, 1: WRITE, 2: READ, 3: STOP, 4: END.\nByte_num represents the number of bytes that need to be sent or received.\nack_check_en, ack_exp and ack are used to control the ACK bit. See I2C cmd structure for more\nInformation."
+            },
+            {
+                "name": "COMMAND0_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 0 is done in I2C Master mode, this bit changes to high\nlevel."
+            }
+        ]
+    },
+    "1611339868": {
+        "name": "COMD1",
+        "address": 1611339868,
+        "size": 32,
+        "access": "",
+        "desc": "I2C command register 1",
+        "fields": [
+            {
+                "name": "COMMAND1",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "This is the content of command 1. It consists of three parts: \nop_code is the command, 0: RSTART, 1: WRITE, 2: READ, 3: STOP, 4: END.\nByte_num represents the number of bytes that need to be sent or received.\nack_check_en, ack_exp and ack are used to control the ACK bit. See I2C cmd structure for more\nInformation."
+            },
+            {
+                "name": "COMMAND1_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 1 is done in I2C Master mode, this bit changes to high\nlevel."
+            }
+        ]
+    },
+    "1611339872": {
+        "name": "COMD2",
+        "address": 1611339872,
+        "size": 32,
+        "access": "",
+        "desc": "I2C command register 2",
+        "fields": [
+            {
+                "name": "COMMAND2",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "This is the content of command 2. It consists of three parts: \nop_code is the command, 0: RSTART, 1: WRITE, 2: READ, 3: STOP, 4: END.\nByte_num represents the number of bytes that need to be sent or received.\nack_check_en, ack_exp and ack are used to control the ACK bit. See I2C cmd structure for more\nInformation."
+            },
+            {
+                "name": "COMMAND2_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 2 is done in I2C Master mode, this bit changes to high\nLevel."
+            }
+        ]
+    },
+    "1611339876": {
+        "name": "COMD3",
+        "address": 1611339876,
+        "size": 32,
+        "access": "",
+        "desc": "I2C command register 3",
+        "fields": [
+            {
+                "name": "COMMAND3",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "This is the content of command 3. It consists of three parts: \nop_code is the command, 0: RSTART, 1: WRITE, 2: READ, 3: STOP, 4: END.\nByte_num represents the number of bytes that need to be sent or received.\nack_check_en, ack_exp and ack are used to control the ACK bit. See I2C cmd structure for more\nInformation."
+            },
+            {
+                "name": "COMMAND3_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 3 is done in I2C Master mode, this bit changes to high\nlevel."
+            }
+        ]
+    },
+    "1611339880": {
+        "name": "COMD4",
+        "address": 1611339880,
+        "size": 32,
+        "access": "",
+        "desc": "I2C command register 4",
+        "fields": [
+            {
+                "name": "COMMAND4",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "This is the content of command 4. It consists of three parts: \nop_code is the command, 0: RSTART, 1: WRITE, 2: READ, 3: STOP, 4: END.\nByte_num represents the number of bytes that need to be sent or received.\nack_check_en, ack_exp and ack are used to control the ACK bit. See I2C cmd structure for more\nInformation."
+            },
+            {
+                "name": "COMMAND4_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 4 is done in I2C Master mode, this bit changes to high\nlevel."
+            }
+        ]
+    },
+    "1611339884": {
+        "name": "COMD5",
+        "address": 1611339884,
+        "size": 32,
+        "access": "",
+        "desc": "I2C command register 5",
+        "fields": [
+            {
+                "name": "COMMAND5",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "This is the content of command 5. It consists of three parts:\nop_code is the command, 0: RSTART, 1: WRITE, 2: READ, 3: STOP, 4: END.\nByte_num represents the number of bytes that need to be sent or received.\nack_check_en, ack_exp and ack are used to control the ACK bit. See I2C cmd structure for more\nInformation."
+            },
+            {
+                "name": "COMMAND5_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 5 is done in I2C Master mode, this bit changes to high level."
+            }
+        ]
+    },
+    "1611339888": {
+        "name": "COMD6",
+        "address": 1611339888,
+        "size": 32,
+        "access": "",
+        "desc": "I2C command register 6",
+        "fields": [
+            {
+                "name": "COMMAND6",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "This is the content of command 6. It consists of three parts: \nop_code is the command, 0: RSTART, 1: WRITE, 2: READ, 3: STOP, 4: END.\nByte_num represents the number of bytes that need to be sent or received.\nack_check_en, ack_exp and ack are used to control the ACK bit. See I2C cmd structure for more\nInformation."
+            },
+            {
+                "name": "COMMAND6_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 6 is done in I2C Master mode, this bit changes to high level."
+            }
+        ]
+    },
+    "1611339892": {
+        "name": "COMD7",
+        "address": 1611339892,
+        "size": 32,
+        "access": "",
+        "desc": "I2C command register 7",
+        "fields": [
+            {
+                "name": "COMMAND7",
+                "bitOffset": 0,
+                "bitWidth": 14,
+                "desc": "This is the content of command 7. It consists of three parts: \nop_code is the command, 0: RSTART, 1: WRITE, 2: READ, 3: STOP, 4: END.\nByte_num represents the number of bytes that need to be sent or received.\nack_check_en, ack_exp and ack are used to control the ACK bit. See I2C cmd structure for more\nInformation."
+            },
+            {
+                "name": "COMMAND7_DONE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "When command 7 is done in I2C Master mode, this bit changes to high level."
+            }
+        ]
+    },
+    "1611339896": {
+        "name": "SCL_ST_TIME_OUT",
+        "address": 1611339896,
+        "size": 32,
+        "access": "",
+        "desc": "SCL status time out register",
+        "fields": [
+            {
+                "name": "SCL_ST_TO_I2C",
+                "bitOffset": 0,
+                "bitWidth": 5,
+                "desc": "The threshold value of SCL_FSM state unchanged period. It should be o more than 23"
+            }
+        ]
+    },
+    "1611339900": {
+        "name": "SCL_MAIN_ST_TIME_OUT",
+        "address": 1611339900,
+        "size": 32,
+        "access": "",
+        "desc": "SCL main status time out register",
+        "fields": [
+            {
+                "name": "SCL_MAIN_ST_TO_I2C",
+                "bitOffset": 0,
+                "bitWidth": 5,
+                "desc": "The threshold value of SCL_MAIN_FSM state unchanged period.nIt should be o more than 23"
+            }
+        ]
+    },
+    "1611339904": {
+        "name": "SCL_SP_CONF",
+        "address": 1611339904,
+        "size": 32,
+        "access": "",
+        "desc": "Power configuration register",
+        "fields": [
+            {
+                "name": "SCL_RST_SLV_EN",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "When I2C master is IDLE, set this bit to send out SCL pulses. The number of pulses equals to reg_scl_rst_slv_num[4:0]."
+            },
+            {
+                "name": "SCL_RST_SLV_NUM",
+                "bitOffset": 1,
+                "bitWidth": 5,
+                "desc": "Configure the pulses of SCL generated in I2C master mode. Valid when reg_scl_rst_slv_en is 1."
+            },
+            {
+                "name": "SCL_PD_EN",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "The power down enable bit for the I2C output SCL line. 1: Power down. 0: Not power down. Set reg_scl_force_out and reg_scl_pd_en to 1 to stretch SCL low."
+            },
+            {
+                "name": "SDA_PD_EN",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "The power down enable bit for the I2C output SDA line. 1: Power down. 0: Not power down. Set reg_sda_force_out and reg_sda_pd_en to 1 to stretch SDA low."
+            }
+        ]
+    },
+    "1611340024": {
+        "name": "DATE",
+        "address": 1611340024,
+        "size": 32,
+        "access": "",
+        "desc": "Version register",
+        "fields": [
+            {
+                "name": "DATE",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "This is the the version register."
+            }
+        ]
+    },
+    "1611340032": {
+        "name": "TXFIFO_START_ADDR",
+        "address": 1611340032,
+        "size": 32,
+        "access": "",
+        "desc": "I2C TXFIFO base address register",
+        "fields": [
+            {
+                "name": "TXFIFO_START_ADDR",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "This is the I2C txfifo first address."
+            }
+        ]
+    },
+    "1611340160": {
+        "name": "RXFIFO_START_ADDR",
+        "address": 1611340160,
+        "size": 32,
+        "access": "",
+        "desc": "I2C RXFIFO base address register",
+        "fields": [
+            {
+                "name": "RXFIFO_START_ADDR",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "This is the I2C rxfifo first address."
+            }
+        ]
+    },
+    "1611343872": {
+        "name": "CLK_EN",
+        "address": 1611343872,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_TOUCH_CK_EN",
+                "bitOffset": 23,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "RNG_CK_EN",
+                "bitOffset": 24,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "OTP_DBG_CK_EN",
+                "bitOffset": 25,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_UART_CK_EN",
+                "bitOffset": 26,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_IO_CK_EN",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_EXT_I2C_CK_EN",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_ANA_I2C_CK_EN",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "EFUSE_CK_EN",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_CPU_CK_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611343876": {
+        "name": "RESET_EN",
+        "address": 1611343876,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BUS_RESET_EN",
+                "bitOffset": 23,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_TOUCH_RESET_EN",
+                "bitOffset": 24,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "OTP_DBG_RESET_EN",
+                "bitOffset": 25,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_UART_RESET_EN",
+                "bitOffset": 26,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_IO_RESET_EN",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_EXT_I2C_RESET_EN",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_ANA_I2C_RESET_EN",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "EFUSE_RESET_EN",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_CPU_RESET_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611343880": {
+        "name": "RNG_DATA",
+        "address": 1611343880,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "RND_DATA",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611343884": {
+        "name": "CPU",
+        "address": 1611343884,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LPCORE_DBGM_UNAVALIABLE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611343888": {
+        "name": "BUS_TIMEOUT",
+        "address": 1611343888,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_PERI_TIMEOUT_THRES",
+                "bitOffset": 14,
+                "bitWidth": 16,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_PERI_TIMEOUT_INT_CLEAR",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_PERI_TIMEOUT_PROTECT_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611343892": {
+        "name": "BUS_TIMEOUT_ADDR",
+        "address": 1611343892,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_PERI_TIMEOUT_ADDR",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611343896": {
+        "name": "BUS_TIMEOUT_UID",
+        "address": 1611343896,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_PERI_TIMEOUT_UID",
+                "bitOffset": 0,
+                "bitWidth": 7,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611343900": {
+        "name": "MEM_CTRL",
+        "address": 1611343900,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "UART_WAKEUP_FLAG_CLR",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "UART_WAKEUP_FLAG",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "UART_WAKEUP_EN",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "UART_MEM_FORCE_PD",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "UART_MEM_FORCE_PU",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611343904": {
+        "name": "INTERRUPT_SOURCE",
+        "address": 1611343904,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_INTERRUPT_SOURCE",
+                "bitOffset": 0,
+                "bitWidth": 6,
+                "desc": "BIT5~BIT0: pmu_lp_int, modem_lp_int, lp_timer_lp_int, lp_uart_int, lp_i2c_int, lp_io_int"
+            }
+        ]
+    },
+    "1611344892": {
+        "name": "DATE",
+        "address": 1611344892,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LPPERI_DATE",
+                "bitOffset": 0,
+                "bitWidth": 31,
+                "desc": "need_des"
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344896": {
+        "name": "BOD_MODE0_CNTL",
+        "address": 1611344896,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE0_CLOSE_FLASH_ENA",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "BOD_MODE0_PD_RF_ENA",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "BOD_MODE0_INTR_WAIT",
+                "bitOffset": 8,
+                "bitWidth": 10,
+                "desc": "need_des"
+            },
+            {
+                "name": "BOD_MODE0_RESET_WAIT",
+                "bitOffset": 18,
+                "bitWidth": 10,
+                "desc": "need_des"
+            },
+            {
+                "name": "BOD_MODE0_CNT_CLR",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "BOD_MODE0_INTR_ENA",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "BOD_MODE0_RESET_SEL",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "BOD_MODE0_RESET_ENA",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344900": {
+        "name": "BOD_MODE1_CNTL",
+        "address": 1611344900,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE1_RESET_ENA",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344904": {
+        "name": "CK_GLITCH_CNTL",
+        "address": 1611344904,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "CK_GLITCH_RESET_ENA",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344908": {
+        "name": "FIB_ENABLE",
+        "address": 1611344908,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "ANA_FIB_ENA",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344912": {
+        "name": "INT_RAW",
+        "address": 1611344912,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE0_INT_RAW",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344916": {
+        "name": "INT_ST",
+        "address": 1611344916,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE0_INT_ST",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344920": {
+        "name": "INT_ENA",
+        "address": 1611344920,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE0_INT_ENA",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344924": {
+        "name": "INT_CLR",
+        "address": 1611344924,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE0_INT_CLR",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344928": {
+        "name": "LP_INT_RAW",
+        "address": 1611344928,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE0_LP_INT_RAW",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344932": {
+        "name": "LP_INT_ST",
+        "address": 1611344932,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE0_LP_INT_ST",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344936": {
+        "name": "LP_INT_ENA",
+        "address": 1611344936,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE0_LP_INT_ENA",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611344940": {
+        "name": "LP_INT_CLR",
+        "address": 1611344940,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "BOD_MODE0_LP_INT_CLR",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611345916": {
+        "name": "DATE",
+        "address": 1611345916,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_ANA_DATE",
+                "bitOffset": 0,
+                "bitWidth": 31,
+                "desc": "need_des"
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337728": {
+        "name": "STORE0",
+        "address": 1611337728,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE0",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337732": {
+        "name": "STORE1",
+        "address": 1611337732,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE1",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337736": {
+        "name": "STORE2",
+        "address": 1611337736,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE2",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337740": {
+        "name": "STORE3",
+        "address": 1611337740,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE3",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337744": {
+        "name": "STORE4",
+        "address": 1611337744,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE4",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337748": {
+        "name": "STORE5",
+        "address": 1611337748,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE5",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337752": {
+        "name": "STORE6",
+        "address": 1611337752,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE6",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337756": {
+        "name": "STORE7",
+        "address": 1611337756,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE7",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337760": {
+        "name": "STORE8",
+        "address": 1611337760,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE8",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337764": {
+        "name": "STORE9",
+        "address": 1611337764,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_STORE9",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337768": {
+        "name": "GPIO_MUX",
+        "address": 1611337768,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SEL",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337772": {
+        "name": "GPIO_HOLD0",
+        "address": 1611337772,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "GPIO_HOLD0",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337776": {
+        "name": "GPIO_HOLD1",
+        "address": 1611337776,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "GPIO_HOLD1",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337780": {
+        "name": "SYS_CFG",
+        "address": 1611337780,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "FORCE_DOWNLOAD_BOOT",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "HPSYS_SW_RESET",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337784": {
+        "name": "CPUCORE0_CFG",
+        "address": 1611337784,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "CPU_CORE0_SW_STALL",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "need_des"
+            },
+            {
+                "name": "CPU_CORE0_SW_RESET",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "CPU_CORE0_OCD_HALT_ON_RESET",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "CPU_CORE0_STAT_VECTOR_SEL",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "CPU_CORE0_DRESET_MASK",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337788": {
+        "name": "IO_MUX",
+        "address": 1611337788,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "RESET_DISABLE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337792": {
+        "name": "EXT_WAKEUP_CNTL",
+        "address": 1611337792,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "EXT_WAKEUP_STATUS",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "need_des"
+            },
+            {
+                "name": "EXT_WAKEUP_STATUS_CLR",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "EXT_WAKEUP_SEL",
+                "bitOffset": 15,
+                "bitWidth": 8,
+                "desc": "need_des"
+            },
+            {
+                "name": "EXT_WAKEUP_LV",
+                "bitOffset": 23,
+                "bitWidth": 8,
+                "desc": "need_des"
+            },
+            {
+                "name": "EXT_WAKEUP_FILTER",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337796": {
+        "name": "USB",
+        "address": 1611337796,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "RESET_DISABLE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337800": {
+        "name": "LPBUS",
+        "address": 1611337800,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "FAST_MEM_WPULSE",
+                "bitOffset": 16,
+                "bitWidth": 3,
+                "desc": "This field controls fast memory WPULSE parameter."
+            },
+            {
+                "name": "FAST_MEM_WA",
+                "bitOffset": 19,
+                "bitWidth": 3,
+                "desc": "This field controls fast memory WA parameter."
+            },
+            {
+                "name": "FAST_MEM_RA",
+                "bitOffset": 22,
+                "bitWidth": 2,
+                "desc": "This field controls fast memory RA parameter."
+            },
+            {
+                "name": "FAST_MEM_MUX_FSM_IDLE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "FAST_MEM_MUX_SEL_STATUS",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "FAST_MEM_MUX_SEL_UPDATE",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "FAST_MEM_MUX_SEL",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337804": {
+        "name": "SDIO_ACTIVE",
+        "address": 1611337804,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SDIO_ACT_DNUM",
+                "bitOffset": 22,
+                "bitWidth": 10,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337808": {
+        "name": "LPCORE",
+        "address": 1611337808,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "ETM_WAKEUP_FLAG_CLR",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "ETM_WAKEUP_FLAG",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "DISABLE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337812": {
+        "name": "SAR_CCT",
+        "address": 1611337812,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SAR2_PWDET_CCT",
+                "bitOffset": 29,
+                "bitWidth": 3,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611338748": {
+        "name": "DATE",
+        "address": 1611338748,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "DATE",
+                "bitOffset": 0,
+                "bitWidth": 31,
+                "desc": "need_des"
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611347968": {
+        "name": "REGION_FILTER_EN",
+        "address": 1611347968,
+        "size": 32,
+        "access": "",
+        "desc": "Region filter enable register",
+        "fields": [
+            {
+                "name": "REGION_FILTER_EN",
+                "bitOffset": 0,
+                "bitWidth": 4,
+                "desc": "Region filter enable"
+            }
+        ]
+    },
+    "1611347972": {
+        "name": "REGION0_ADDR_START",
+        "address": 1611347972,
+        "size": 32,
+        "access": "",
+        "desc": "Region address register",
+        "fields": [
+            {
+                "name": "REGION0_ADDR_START",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "Start address of region0"
+            }
+        ]
+    },
+    "1611347976": {
+        "name": "REGION0_ADDR_END",
+        "address": 1611347976,
+        "size": 32,
+        "access": "",
+        "desc": "Region address register",
+        "fields": [
+            {
+                "name": "REGION0_ADDR_END",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "End address of region0"
+            }
+        ]
+    },
+    "1611347980": {
+        "name": "REGION0_PMS_ATTR",
+        "address": 1611347980,
+        "size": 32,
+        "access": "",
+        "desc": "Region access authority attribute register",
+        "fields": [
+            {
+                "name": "REGION0_R0_PMS_X",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE0"
+            },
+            {
+                "name": "REGION0_R0_PMS_W",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE0"
+            },
+            {
+                "name": "REGION0_R0_PMS_R",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE0"
+            },
+            {
+                "name": "REGION0_R1_PMS_X",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE1"
+            },
+            {
+                "name": "REGION0_R1_PMS_W",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE1"
+            },
+            {
+                "name": "REGION0_R1_PMS_R",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE1"
+            },
+            {
+                "name": "REGION0_R2_PMS_X",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE2"
+            },
+            {
+                "name": "REGION0_R2_PMS_W",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE2"
+            },
+            {
+                "name": "REGION0_R2_PMS_R",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE2"
+            }
+        ]
+    },
+    "1611347984": {
+        "name": "REGION1_ADDR_START",
+        "address": 1611347984,
+        "size": 32,
+        "access": "",
+        "desc": "Region address register",
+        "fields": [
+            {
+                "name": "REGION1_ADDR_START",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "Start address of region1"
+            }
+        ]
+    },
+    "1611347988": {
+        "name": "REGION1_ADDR_END",
+        "address": 1611347988,
+        "size": 32,
+        "access": "",
+        "desc": "Region address register",
+        "fields": [
+            {
+                "name": "REGION1_ADDR_END",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "End address of region1"
+            }
+        ]
+    },
+    "1611347992": {
+        "name": "REGION1_PMS_ATTR",
+        "address": 1611347992,
+        "size": 32,
+        "access": "",
+        "desc": "Region access authority attribute register",
+        "fields": [
+            {
+                "name": "REGION1_R0_PMS_X",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE0"
+            },
+            {
+                "name": "REGION1_R0_PMS_W",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE0"
+            },
+            {
+                "name": "REGION1_R0_PMS_R",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE0"
+            },
+            {
+                "name": "REGION1_R1_PMS_X",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE1"
+            },
+            {
+                "name": "REGION1_R1_PMS_W",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE1"
+            },
+            {
+                "name": "REGION1_R1_PMS_R",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE1"
+            },
+            {
+                "name": "REGION1_R2_PMS_X",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE2"
+            },
+            {
+                "name": "REGION1_R2_PMS_W",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE2"
+            },
+            {
+                "name": "REGION1_R2_PMS_R",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE2"
+            }
+        ]
+    },
+    "1611347996": {
+        "name": "REGION2_ADDR_START",
+        "address": 1611347996,
+        "size": 32,
+        "access": "",
+        "desc": "Region address register",
+        "fields": [
+            {
+                "name": "REGION2_ADDR_START",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "Start address of region2"
+            }
+        ]
+    },
+    "1611348000": {
+        "name": "REGION2_ADDR_END",
+        "address": 1611348000,
+        "size": 32,
+        "access": "",
+        "desc": "Region address register",
+        "fields": [
+            {
+                "name": "REGION2_ADDR_END",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "End address of region2"
+            }
+        ]
+    },
+    "1611348004": {
+        "name": "REGION2_PMS_ATTR",
+        "address": 1611348004,
+        "size": 32,
+        "access": "",
+        "desc": "Region access authority attribute register",
+        "fields": [
+            {
+                "name": "REGION2_R0_PMS_X",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE0"
+            },
+            {
+                "name": "REGION2_R0_PMS_W",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE0"
+            },
+            {
+                "name": "REGION2_R0_PMS_R",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE0"
+            },
+            {
+                "name": "REGION2_R1_PMS_X",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE1"
+            },
+            {
+                "name": "REGION2_R1_PMS_W",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE1"
+            },
+            {
+                "name": "REGION2_R1_PMS_R",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE1"
+            },
+            {
+                "name": "REGION2_R2_PMS_X",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE2"
+            },
+            {
+                "name": "REGION2_R2_PMS_W",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE2"
+            },
+            {
+                "name": "REGION2_R2_PMS_R",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE2"
+            }
+        ]
+    },
+    "1611348008": {
+        "name": "REGION3_ADDR_START",
+        "address": 1611348008,
+        "size": 32,
+        "access": "",
+        "desc": "Region address register",
+        "fields": [
+            {
+                "name": "REGION3_ADDR_START",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "Start address of region3"
+            }
+        ]
+    },
+    "1611348012": {
+        "name": "REGION3_ADDR_END",
+        "address": 1611348012,
+        "size": 32,
+        "access": "",
+        "desc": "Region address register",
+        "fields": [
+            {
+                "name": "REGION3_ADDR_END",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "End address of region3"
+            }
+        ]
+    },
+    "1611348016": {
+        "name": "REGION3_PMS_ATTR",
+        "address": 1611348016,
+        "size": 32,
+        "access": "",
+        "desc": "Region access authority attribute register",
+        "fields": [
+            {
+                "name": "REGION3_R0_PMS_X",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE0"
+            },
+            {
+                "name": "REGION3_R0_PMS_W",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE0"
+            },
+            {
+                "name": "REGION3_R0_PMS_R",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE0"
+            },
+            {
+                "name": "REGION3_R1_PMS_X",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE1"
+            },
+            {
+                "name": "REGION3_R1_PMS_W",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE1"
+            },
+            {
+                "name": "REGION3_R1_PMS_R",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE1"
+            },
+            {
+                "name": "REGION3_R2_PMS_X",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "Region execute authority in REE_MODE2"
+            },
+            {
+                "name": "REGION3_R2_PMS_W",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "Region write authority in REE_MODE2"
+            },
+            {
+                "name": "REGION3_R2_PMS_R",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "Region read authority in REE_MODE2"
+            }
+        ]
+    },
+    "1611348164": {
+        "name": "FUNC_CTRL",
+        "address": 1611348164,
+        "size": 32,
+        "access": "",
+        "desc": "PMS function control register",
+        "fields": [
+            {
+                "name": "M0_PMS_FUNC_EN",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "PMS M0 function enable"
+            },
+            {
+                "name": "M1_PMS_FUNC_EN",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "PMS M1 function enable"
+            }
+        ]
+    },
+    "1611348168": {
+        "name": "M0_STATUS",
+        "address": 1611348168,
+        "size": 32,
+        "access": "",
+        "desc": "M0 status register",
+        "fields": [
+            {
+                "name": "M0_EXCEPTION_STATUS",
+                "bitOffset": 0,
+                "bitWidth": 2,
+                "desc": "Exception status"
+            }
+        ]
+    },
+    "1611348172": {
+        "name": "M0_STATUS_CLR",
+        "address": 1611348172,
+        "size": 32,
+        "access": "",
+        "desc": "M0 status clear register",
+        "fields": [
+            {
+                "name": "M0_REGION_STATUS_CLR",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Clear exception status"
+            }
+        ]
+    },
+    "1611348176": {
+        "name": "M0_EXCEPTION_INFO0",
+        "address": 1611348176,
+        "size": 32,
+        "access": "",
+        "desc": "M0 exception_info0 register",
+        "fields": [
+            {
+                "name": "M0_EXCEPTION_REGION",
+                "bitOffset": 0,
+                "bitWidth": 4,
+                "desc": "Exception region"
+            },
+            {
+                "name": "M0_EXCEPTION_MODE",
+                "bitOffset": 16,
+                "bitWidth": 2,
+                "desc": "Exception mode"
+            },
+            {
+                "name": "M0_EXCEPTION_ID",
+                "bitOffset": 18,
+                "bitWidth": 5,
+                "desc": "Exception id information"
+            }
+        ]
+    },
+    "1611348180": {
+        "name": "M0_EXCEPTION_INFO1",
+        "address": 1611348180,
+        "size": 32,
+        "access": "",
+        "desc": "M0 exception_info1 register",
+        "fields": [
+            {
+                "name": "M0_EXCEPTION_ADDR",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "Exception addr"
+            }
+        ]
+    },
+    "1611348184": {
+        "name": "M1_STATUS",
+        "address": 1611348184,
+        "size": 32,
+        "access": "",
+        "desc": "M1 status register",
+        "fields": [
+            {
+                "name": "M1_EXCEPTION_STATUS",
+                "bitOffset": 0,
+                "bitWidth": 2,
+                "desc": "Exception status"
+            }
+        ]
+    },
+    "1611348188": {
+        "name": "M1_STATUS_CLR",
+        "address": 1611348188,
+        "size": 32,
+        "access": "",
+        "desc": "M1 status clear register",
+        "fields": [
+            {
+                "name": "M1_REGION_STATUS_CLR",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Clear exception status"
+            }
+        ]
+    },
+    "1611348192": {
+        "name": "M1_EXCEPTION_INFO0",
+        "address": 1611348192,
+        "size": 32,
+        "access": "",
+        "desc": "M1 exception_info0 register",
+        "fields": [
+            {
+                "name": "M1_EXCEPTION_REGION",
+                "bitOffset": 0,
+                "bitWidth": 4,
+                "desc": "Exception region"
+            },
+            {
+                "name": "M1_EXCEPTION_MODE",
+                "bitOffset": 16,
+                "bitWidth": 2,
+                "desc": "Exception mode"
+            },
+            {
+                "name": "M1_EXCEPTION_ID",
+                "bitOffset": 18,
+                "bitWidth": 5,
+                "desc": "Exception id information"
+            }
+        ]
+    },
+    "1611348196": {
+        "name": "M1_EXCEPTION_INFO1",
+        "address": 1611348196,
+        "size": 32,
+        "access": "",
+        "desc": "M1 exception_info1 register",
+        "fields": [
+            {
+                "name": "M1_EXCEPTION_ADDR",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "Exception addr"
+            }
+        ]
+    },
+    "1611348200": {
+        "name": "INT_EN",
+        "address": 1611348200,
+        "size": 32,
+        "access": "",
+        "desc": "APM interrupt enable register",
+        "fields": [
+            {
+                "name": "M0_APM_INT_EN",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "APM M0 interrupt enable"
+            },
+            {
+                "name": "M1_APM_INT_EN",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "APM M1 interrupt enable"
+            }
+        ]
+    },
+    "1611348204": {
+        "name": "CLOCK_GATE",
+        "address": 1611348204,
+        "size": 32,
+        "access": "",
+        "desc": "clock gating register",
+        "fields": [
+            {
+                "name": "CLK_EN",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "reg_clk_en"
+            }
+        ]
+    },
+    "1611348220": {
+        "name": "DATE",
+        "address": 1611348220,
+        "size": 32,
+        "access": "",
+        "desc": "Version register",
+        "fields": [
+            {
+                "name": "DATE",
+                "bitOffset": 0,
+                "bitWidth": 28,
+                "desc": "reg_date"
+            }
+        ]
+    },
+    "1611334656": {
+        "name": "LP_CLK_CONF",
+        "address": 1611334656,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SLOW_CLK_SEL",
+                "bitOffset": 0,
+                "bitWidth": 2,
+                "desc": "need_des"
+            },
+            {
+                "name": "FAST_CLK_SEL",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_PERI_DIV_NUM",
+                "bitOffset": 3,
+                "bitWidth": 8,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334660": {
+        "name": "LP_CLK_PO_EN",
+        "address": 1611334660,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "AON_SLOW_OEN",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "AON_FAST_OEN",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SOSC_OEN",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "FOSC_OEN",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "OSC32K_OEN",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "XTAL32K_OEN",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "CORE_EFUSE_OEN",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SLOW_OEN",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "FAST_OEN",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "RNG_OEN",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LPBUS_OEN",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334664": {
+        "name": "LP_CLK_EN",
+        "address": 1611334664,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "FAST_ORI_GATE",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334668": {
+        "name": "LP_RST_EN",
+        "address": 1611334668,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "AON_EFUSE_CORE_RESET_EN",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_TIMER_RESET_EN",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_RESET_EN",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "ANA_PERI_RESET_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334672": {
+        "name": "RESET_CAUSE",
+        "address": 1611334672,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "RESET_CAUSE",
+                "bitOffset": 0,
+                "bitWidth": 5,
+                "desc": "need_des"
+            },
+            {
+                "name": "CORE0_RESET_FLAG",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "CORE0_RESET_CAUSE_CLR",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "CORE0_RESET_FLAG_SET",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "CORE0_RESET_FLAG_CLR",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334676": {
+        "name": "CPU_RESET",
+        "address": 1611334676,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "RTC_WDT_CPU_RESET_LENGTH",
+                "bitOffset": 22,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "RTC_WDT_CPU_RESET_EN",
+                "bitOffset": 25,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "CPU_STALL_WAIT",
+                "bitOffset": 26,
+                "bitWidth": 5,
+                "desc": "need_des"
+            },
+            {
+                "name": "CPU_STALL_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334680": {
+        "name": "FOSC_CNTL",
+        "address": 1611334680,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "FOSC_DFREQ",
+                "bitOffset": 22,
+                "bitWidth": 10,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334684": {
+        "name": "RC32K_CNTL",
+        "address": 1611334684,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "RC32K_DFREQ",
+                "bitOffset": 22,
+                "bitWidth": 10,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334688": {
+        "name": "CLK_TO_HP",
+        "address": 1611334688,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "ICG_HP_XTAL32K",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "ICG_HP_SOSC",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "ICG_HP_OSC32K",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "ICG_HP_FOSC",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334692": {
+        "name": "LPMEM_FORCE",
+        "address": 1611334692,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LPMEM_CLK_FORCE_ON",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334696": {
+        "name": "LPPERI",
+        "address": 1611334696,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_I2C_CLK_SEL",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_UART_CLK_SEL",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611334700": {
+        "name": "XTAL32K",
+        "address": 1611334700,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "DRES_XTAL32K",
+                "bitOffset": 22,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "DGM_XTAL32K",
+                "bitOffset": 25,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "DBUF_XTAL32K",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "DAC_XTAL32K",
+                "bitOffset": 29,
+                "bitWidth": 3,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611335676": {
+        "name": "DATE",
+        "address": 1611335676,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "CLKRST_DATE",
+                "bitOffset": 0,
+                "bitWidth": 31,
+                "desc": "need_des"
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611342848": {
+        "name": "I2C0_CTRL",
+        "address": 1611342848,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_I2C_ANA_MAST_I2C0_CTRL",
+                "bitOffset": 0,
+                "bitWidth": 25,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_I2C_ANA_MAST_I2C0_BUSY",
+                "bitOffset": 25,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611342852": {
+        "name": "I2C0_CONF",
+        "address": 1611342852,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_I2C_ANA_MAST_I2C0_CONF",
+                "bitOffset": 0,
+                "bitWidth": 24,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_I2C_ANA_MAST_I2C0_STATUS",
+                "bitOffset": 24,
+                "bitWidth": 8,
+                "desc": "reserved"
+            }
+        ]
+    },
+    "1611342856": {
+        "name": "I2C0_DATA",
+        "address": 1611342856,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_I2C_ANA_MAST_I2C0_RDATA",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_I2C_ANA_MAST_I2C0_CLK_SEL",
+                "bitOffset": 8,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_I2C_ANA_MAST_I2C_MST_SEL",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "need  des"
+            }
+        ]
+    },
+    "1611342860": {
+        "name": "ANA_CONF1",
+        "address": 1611342860,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_I2C_ANA_MAST_ANA_CONF1",
+                "bitOffset": 0,
+                "bitWidth": 24,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611342864": {
+        "name": "NOUSE",
+        "address": 1611342864,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_I2C_ANA_MAST_I2C_MST_NOUSE",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611342868": {
+        "name": "DEVICE_EN",
+        "address": 1611342868,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_I2C_ANA_MAST_I2C_DEVICE_EN",
+                "bitOffset": 0,
+                "bitWidth": 12,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611343868": {
+        "name": "DATE",
+        "address": 1611343868,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_I2C_ANA_MAST_I2C_MAT_DATE",
+                "bitOffset": 0,
+                "bitWidth": 28,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_I2C_ANA_MAST_I2C_MAT_CLK_EN",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611341824": {
+        "name": "OUT",
+        "address": 1611341824,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "OUT_DATA",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "set lp gpio output data"
+            }
+        ]
+    },
+    "1611341828": {
+        "name": "OUT_W1TS",
+        "address": 1611341828,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "OUT_DATA_W1TS",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "set one time output data"
+            }
+        ]
+    },
+    "1611341832": {
+        "name": "OUT_W1TC",
+        "address": 1611341832,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "OUT_DATA_W1TC",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "clear one time output data"
+            }
+        ]
+    },
+    "1611341836": {
+        "name": "ENABLE",
+        "address": 1611341836,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "ENABLE",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "set lp gpio output data"
+            }
+        ]
+    },
+    "1611341840": {
+        "name": "ENABLE_W1TS",
+        "address": 1611341840,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "ENABLE_W1TS",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "set one time output data"
+            }
+        ]
+    },
+    "1611341844": {
+        "name": "ENABLE_W1TC",
+        "address": 1611341844,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "ENABLE_W1TC",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "clear one time output data"
+            }
+        ]
+    },
+    "1611341848": {
+        "name": "STATUS",
+        "address": 1611341848,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "INTERRUPT",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "set lp gpio output data"
+            }
+        ]
+    },
+    "1611341852": {
+        "name": "STATUS_W1TS",
+        "address": 1611341852,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "STATUS_W1TS",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "set one time output data"
+            }
+        ]
+    },
+    "1611341856": {
+        "name": "STATUS_W1TC",
+        "address": 1611341856,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "STATUS_W1TC",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "clear one time output data"
+            }
+        ]
+    },
+    "1611341860": {
+        "name": "IN",
+        "address": 1611341860,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "DATA_NEXT",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "need des"
+            }
+        ]
+    },
+    "1611341864": {
+        "name": "PIN%s",
+        "address": 1611341864,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "SYNC_BYPASS",
+                "bitOffset": 0,
+                "bitWidth": 2,
+                "desc": "need des"
+            },
+            {
+                "name": "PAD_DRIVER",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "EDGE_WAKEUP_CLR",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "INT_TYPE",
+                "bitOffset": 7,
+                "bitWidth": 3,
+                "desc": "need des"
+            },
+            {
+                "name": "WAKEUP_ENABLE",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "FILTER_EN",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "need des"
+            }
+        ]
+    },
+    "1611341896": {
+        "name": "GPIO%s",
+        "address": 1611341896,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "MCU_OE",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "SLP_SEL",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "MCU_WPD",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "MCU_WPU",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "MCU_IE",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "MCU_DRV",
+                "bitOffset": 5,
+                "bitWidth": 2,
+                "desc": "need des"
+            },
+            {
+                "name": "FUN_WPD",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "FUN_WPU",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "FUN_IE",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "need des"
+            },
+            {
+                "name": "FUN_DRV",
+                "bitOffset": 10,
+                "bitWidth": 2,
+                "desc": "need des"
+            },
+            {
+                "name": "FUN_SEL",
+                "bitOffset": 12,
+                "bitWidth": 3,
+                "desc": "need des"
+            }
+        ]
+    },
+    "1611341928": {
+        "name": "STATUS_INT",
+        "address": 1611341928,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "NEXT",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "need des"
+            }
+        ]
+    },
+    "1611342844": {
+        "name": "DATE",
+        "address": 1611342844,
+        "size": 32,
+        "access": "",
+        "desc": "need des",
+        "fields": [
+            {
+                "name": "LP_IO_DATE",
+                "bitOffset": 0,
+                "bitWidth": 31,
+                "desc": "need des"
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need des"
+            }
+        ]
+    },
+    "1611346944": {
+        "name": "M0_MODE_CTRL",
+        "address": 1611346944,
+        "size": 32,
+        "access": "",
+        "desc": "Tee mode control register",
+        "fields": [
+            {
+                "name": "M0_MODE",
+                "bitOffset": 0,
+                "bitWidth": 2,
+                "desc": "M0 security level mode: 2'd3: ree_mode2. 2'd2: ree_mode1. 2'd1: ree_mode0. 2'd0: tee_mode"
+            }
+        ]
+    },
+    "1611346948": {
+        "name": "CLOCK_GATE",
+        "address": 1611346948,
+        "size": 32,
+        "access": "",
+        "desc": "Clock gating register",
+        "fields": [
+            {
+                "name": "CLK_EN",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "reg_clk_en"
+            }
+        ]
+    },
+    "1611347088": {
+        "name": "FORCE_ACC_HP",
+        "address": 1611347088,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_AON_FORCE_ACC_HPMEM_EN",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611347196": {
+        "name": "DATE",
+        "address": 1611347196,
+        "size": 32,
+        "access": "",
+        "desc": "Version register",
+        "fields": [
+            {
+                "name": "DATE",
+                "bitOffset": 0,
+                "bitWidth": 28,
+                "desc": "reg_tee_date"
+            }
+        ]
+    },
+    "1611336704": {
+        "name": "TAR0_LOW",
+        "address": 1611336704,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_TAR_LOW0",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336708": {
+        "name": "TAR0_HIGH",
+        "address": 1611336708,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_TAR_HIGH0",
+                "bitOffset": 0,
+                "bitWidth": 16,
+                "desc": "need_des"
+            },
+            {
+                "name": "MAIN_TIMER_TAR_EN0",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336712": {
+        "name": "TAR1_LOW",
+        "address": 1611336712,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_TAR_LOW1",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336716": {
+        "name": "TAR1_HIGH",
+        "address": 1611336716,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_TAR_HIGH1",
+                "bitOffset": 0,
+                "bitWidth": 16,
+                "desc": "need_des"
+            },
+            {
+                "name": "MAIN_TIMER_TAR_EN1",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336720": {
+        "name": "UPDATE",
+        "address": 1611336720,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_UPDATE",
+                "bitOffset": 28,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "MAIN_TIMER_XTAL_OFF",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "MAIN_TIMER_SYS_STALL",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "MAIN_TIMER_SYS_RST",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336724": {
+        "name": "MAIN_BUF0_LOW",
+        "address": 1611336724,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_BUF0_LOW",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336728": {
+        "name": "MAIN_BUF0_HIGH",
+        "address": 1611336728,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_BUF0_HIGH",
+                "bitOffset": 0,
+                "bitWidth": 16,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336732": {
+        "name": "MAIN_BUF1_LOW",
+        "address": 1611336732,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_BUF1_LOW",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336736": {
+        "name": "MAIN_BUF1_HIGH",
+        "address": 1611336736,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_BUF1_HIGH",
+                "bitOffset": 0,
+                "bitWidth": 16,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336740": {
+        "name": "MAIN_OVERFLOW",
+        "address": 1611336740,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_ALARM_LOAD",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336744": {
+        "name": "INT_RAW",
+        "address": 1611336744,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "OVERFLOW_RAW",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SOC_WAKEUP_INT_RAW",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336748": {
+        "name": "INT_ST",
+        "address": 1611336748,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "OVERFLOW_ST",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SOC_WAKEUP_INT_ST",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336752": {
+        "name": "INT_ENA",
+        "address": 1611336752,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "OVERFLOW_ENA",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SOC_WAKEUP_INT_ENA",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336756": {
+        "name": "INT_CLR",
+        "address": 1611336756,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "OVERFLOW_CLR",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SOC_WAKEUP_INT_CLR",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336760": {
+        "name": "LP_INT_RAW",
+        "address": 1611336760,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_OVERFLOW_LP_INT_RAW",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "MAIN_TIMER_LP_INT_RAW",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336764": {
+        "name": "LP_INT_ST",
+        "address": 1611336764,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_OVERFLOW_LP_INT_ST",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "MAIN_TIMER_LP_INT_ST",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336768": {
+        "name": "LP_INT_ENA",
+        "address": 1611336768,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_OVERFLOW_LP_INT_ENA",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "MAIN_TIMER_LP_INT_ENA",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611336772": {
+        "name": "LP_INT_CLR",
+        "address": 1611336772,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "MAIN_TIMER_OVERFLOW_LP_INT_CLR",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "MAIN_TIMER_LP_INT_CLR",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611337724": {
+        "name": "DATE",
+        "address": 1611337724,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "DATE",
+                "bitOffset": 0,
+                "bitWidth": 31,
+                "desc": "need_des"
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611338752": {
+        "name": "FIFO",
+        "address": 1611338752,
+        "size": 32,
+        "access": "",
+        "desc": "FIFO data register",
+        "fields": [
+            {
+                "name": "RXFIFO_RD_BYTE",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "UART 0 accesses FIFO via this register."
+            }
+        ]
+    },
+    "1611338756": {
+        "name": "INT_RAW",
+        "address": 1611338756,
+        "size": 32,
+        "access": "",
+        "desc": "Raw interrupt status",
+        "fields": [
+            {
+                "name": "RXFIFO_FULL_INT_RAW",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver receives more data than what rxfifo_full_thrhd specifies."
+            },
+            {
+                "name": "TXFIFO_EMPTY_INT_RAW",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when the amount of data in Tx-FIFO is less than what txfifo_empty_thrhd specifies ."
+            },
+            {
+                "name": "PARITY_ERR_INT_RAW",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver detects a parity error in the data."
+            },
+            {
+                "name": "FRM_ERR_INT_RAW",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver detects a data frame error ."
+            },
+            {
+                "name": "RXFIFO_OVF_INT_RAW",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver receives more data than the FIFO can store."
+            },
+            {
+                "name": "DSR_CHG_INT_RAW",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver detects the edge change of DSRn signal."
+            },
+            {
+                "name": "CTS_CHG_INT_RAW",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver detects the edge change of CTSn signal."
+            },
+            {
+                "name": "BRK_DET_INT_RAW",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver detects a 0 after the stop bit."
+            },
+            {
+                "name": "RXFIFO_TOUT_INT_RAW",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver takes more time than rx_tout_thrhd to receive a byte."
+            },
+            {
+                "name": "SW_XON_INT_RAW",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver recevies Xon char when uart_sw_flow_con_en is set to 1."
+            },
+            {
+                "name": "SW_XOFF_INT_RAW",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver receives Xoff char when uart_sw_flow_con_en is set to 1."
+            },
+            {
+                "name": "GLITCH_DET_INT_RAW",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver detects a glitch in the middle of a start bit."
+            },
+            {
+                "name": "TX_BRK_DONE_INT_RAW",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when transmitter completes  sending  NULL characters after all data in Tx-FIFO are sent."
+            },
+            {
+                "name": "TX_BRK_IDLE_DONE_INT_RAW",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when transmitter has kept the shortest duration after sending the  last data."
+            },
+            {
+                "name": "TX_DONE_INT_RAW",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when transmitter has send out all data in FIFO."
+            },
+            {
+                "name": "AT_CMD_CHAR_DET_INT_RAW",
+                "bitOffset": 18,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when receiver detects the configured at_cmd char."
+            },
+            {
+                "name": "WAKEUP_INT_RAW",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "This interrupt raw bit turns to high level when input rxd edge changes more times than what reg_active_threshold specifies in light sleeping mode."
+            }
+        ]
+    },
+    "1611338760": {
+        "name": "INT_ST",
+        "address": 1611338760,
+        "size": 32,
+        "access": "",
+        "desc": "Masked interrupt status",
+        "fields": [
+            {
+                "name": "RXFIFO_FULL_INT_ST",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "This is the status bit for rxfifo_full_int_raw when rxfifo_full_int_ena is set to 1."
+            },
+            {
+                "name": "TXFIFO_EMPTY_INT_ST",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "This is the status bit for  txfifo_empty_int_raw  when txfifo_empty_int_ena is set to 1."
+            },
+            {
+                "name": "PARITY_ERR_INT_ST",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "This is the status bit for parity_err_int_raw when parity_err_int_ena is set to 1."
+            },
+            {
+                "name": "FRM_ERR_INT_ST",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "This is the status bit for frm_err_int_raw when frm_err_int_ena is set to 1."
+            },
+            {
+                "name": "RXFIFO_OVF_INT_ST",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "This is the status bit for rxfifo_ovf_int_raw when rxfifo_ovf_int_ena is set to 1."
+            },
+            {
+                "name": "DSR_CHG_INT_ST",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "This is the status bit for dsr_chg_int_raw when dsr_chg_int_ena is set to 1."
+            },
+            {
+                "name": "CTS_CHG_INT_ST",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "This is the status bit for cts_chg_int_raw when cts_chg_int_ena is set to 1."
+            },
+            {
+                "name": "BRK_DET_INT_ST",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "This is the status bit for brk_det_int_raw when brk_det_int_ena is set to 1."
+            },
+            {
+                "name": "RXFIFO_TOUT_INT_ST",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "This is the status bit for rxfifo_tout_int_raw when rxfifo_tout_int_ena is set to 1."
+            },
+            {
+                "name": "SW_XON_INT_ST",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "This is the status bit for sw_xon_int_raw when sw_xon_int_ena is set to 1."
+            },
+            {
+                "name": "SW_XOFF_INT_ST",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "This is the status bit for sw_xoff_int_raw when sw_xoff_int_ena is set to 1."
+            },
+            {
+                "name": "GLITCH_DET_INT_ST",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "This is the status bit for glitch_det_int_raw when glitch_det_int_ena is set to 1."
+            },
+            {
+                "name": "TX_BRK_DONE_INT_ST",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "This is the status bit for tx_brk_done_int_raw when tx_brk_done_int_ena is set to 1."
+            },
+            {
+                "name": "TX_BRK_IDLE_DONE_INT_ST",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "This is the stauts bit for tx_brk_idle_done_int_raw when tx_brk_idle_done_int_ena is set to 1."
+            },
+            {
+                "name": "TX_DONE_INT_ST",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "This is the status bit for tx_done_int_raw when tx_done_int_ena is set to 1."
+            },
+            {
+                "name": "AT_CMD_CHAR_DET_INT_ST",
+                "bitOffset": 18,
+                "bitWidth": 1,
+                "desc": "This is the status bit for at_cmd_det_int_raw when at_cmd_char_det_int_ena is set to 1."
+            },
+            {
+                "name": "WAKEUP_INT_ST",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "This is the status bit for uart_wakeup_int_raw when uart_wakeup_int_ena is set to 1."
+            }
+        ]
+    },
+    "1611338764": {
+        "name": "INT_ENA",
+        "address": 1611338764,
+        "size": 32,
+        "access": "",
+        "desc": "Interrupt enable bits",
+        "fields": [
+            {
+                "name": "RXFIFO_FULL_INT_ENA",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for rxfifo_full_int_st register."
+            },
+            {
+                "name": "TXFIFO_EMPTY_INT_ENA",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for txfifo_empty_int_st register."
+            },
+            {
+                "name": "PARITY_ERR_INT_ENA",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for parity_err_int_st register."
+            },
+            {
+                "name": "FRM_ERR_INT_ENA",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for frm_err_int_st register."
+            },
+            {
+                "name": "RXFIFO_OVF_INT_ENA",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for rxfifo_ovf_int_st register."
+            },
+            {
+                "name": "DSR_CHG_INT_ENA",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for dsr_chg_int_st register."
+            },
+            {
+                "name": "CTS_CHG_INT_ENA",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for cts_chg_int_st register."
+            },
+            {
+                "name": "BRK_DET_INT_ENA",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for brk_det_int_st register."
+            },
+            {
+                "name": "RXFIFO_TOUT_INT_ENA",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for rxfifo_tout_int_st register."
+            },
+            {
+                "name": "SW_XON_INT_ENA",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for sw_xon_int_st register."
+            },
+            {
+                "name": "SW_XOFF_INT_ENA",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for sw_xoff_int_st register."
+            },
+            {
+                "name": "GLITCH_DET_INT_ENA",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for glitch_det_int_st register."
+            },
+            {
+                "name": "TX_BRK_DONE_INT_ENA",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for tx_brk_done_int_st register."
+            },
+            {
+                "name": "TX_BRK_IDLE_DONE_INT_ENA",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for tx_brk_idle_done_int_st register."
+            },
+            {
+                "name": "TX_DONE_INT_ENA",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for tx_done_int_st register."
+            },
+            {
+                "name": "AT_CMD_CHAR_DET_INT_ENA",
+                "bitOffset": 18,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for at_cmd_char_det_int_st register."
+            },
+            {
+                "name": "WAKEUP_INT_ENA",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "This is the enable bit for uart_wakeup_int_st register."
+            }
+        ]
+    },
+    "1611338768": {
+        "name": "INT_CLR",
+        "address": 1611338768,
+        "size": 32,
+        "access": "",
+        "desc": "Interrupt clear bits",
+        "fields": [
+            {
+                "name": "RXFIFO_FULL_INT_CLR",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the rxfifo_full_int_raw interrupt."
+            },
+            {
+                "name": "TXFIFO_EMPTY_INT_CLR",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear txfifo_empty_int_raw interrupt."
+            },
+            {
+                "name": "PARITY_ERR_INT_CLR",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear parity_err_int_raw interrupt."
+            },
+            {
+                "name": "FRM_ERR_INT_CLR",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear frm_err_int_raw interrupt."
+            },
+            {
+                "name": "RXFIFO_OVF_INT_CLR",
+                "bitOffset": 4,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear rxfifo_ovf_int_raw interrupt."
+            },
+            {
+                "name": "DSR_CHG_INT_CLR",
+                "bitOffset": 5,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the dsr_chg_int_raw interrupt."
+            },
+            {
+                "name": "CTS_CHG_INT_CLR",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the cts_chg_int_raw interrupt."
+            },
+            {
+                "name": "BRK_DET_INT_CLR",
+                "bitOffset": 7,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the brk_det_int_raw interrupt."
+            },
+            {
+                "name": "RXFIFO_TOUT_INT_CLR",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the rxfifo_tout_int_raw interrupt."
+            },
+            {
+                "name": "SW_XON_INT_CLR",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the sw_xon_int_raw interrupt."
+            },
+            {
+                "name": "SW_XOFF_INT_CLR",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the sw_xoff_int_raw interrupt."
+            },
+            {
+                "name": "GLITCH_DET_INT_CLR",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the glitch_det_int_raw interrupt."
+            },
+            {
+                "name": "TX_BRK_DONE_INT_CLR",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the tx_brk_done_int_raw interrupt.."
+            },
+            {
+                "name": "TX_BRK_IDLE_DONE_INT_CLR",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the tx_brk_idle_done_int_raw interrupt."
+            },
+            {
+                "name": "TX_DONE_INT_CLR",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the tx_done_int_raw interrupt."
+            },
+            {
+                "name": "AT_CMD_CHAR_DET_INT_CLR",
+                "bitOffset": 18,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the at_cmd_char_det_int_raw interrupt."
+            },
+            {
+                "name": "WAKEUP_INT_CLR",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "Set this bit to clear the uart_wakeup_int_raw interrupt."
+            }
+        ]
+    },
+    "1611338772": {
+        "name": "CLKDIV_SYNC",
+        "address": 1611338772,
+        "size": 32,
+        "access": "",
+        "desc": "Clock divider configuration",
+        "fields": [
+            {
+                "name": "CLKDIV",
+                "bitOffset": 0,
+                "bitWidth": 12,
+                "desc": "The integral part of the frequency divider factor."
+            },
+            {
+                "name": "CLKDIV_FRAG",
+                "bitOffset": 20,
+                "bitWidth": 4,
+                "desc": "The decimal part of the frequency divider factor."
+            }
+        ]
+    },
+    "1611338776": {
+        "name": "RX_FILT",
+        "address": 1611338776,
+        "size": 32,
+        "access": "",
+        "desc": "Rx Filter configuration",
+        "fields": [
+            {
+                "name": "GLITCH_FILT",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "when input pulse width is lower than this value the pulse is ignored."
+            },
+            {
+                "name": "GLITCH_FILT_EN",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable Rx signal filter."
+            }
+        ]
+    },
+    "1611338780": {
+        "name": "STATUS",
+        "address": 1611338780,
+        "size": 32,
+        "access": "",
+        "desc": "UART status register",
+        "fields": [
+            {
+                "name": "RXFIFO_CNT",
+                "bitOffset": 3,
+                "bitWidth": 5,
+                "desc": "Stores the byte number of valid data in Rx-FIFO."
+            },
+            {
+                "name": "DSRN",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "The register represent the level value of the internal uart dsr signal."
+            },
+            {
+                "name": "CTSN",
+                "bitOffset": 14,
+                "bitWidth": 1,
+                "desc": "This register represent the level value of the internal uart cts signal."
+            },
+            {
+                "name": "RXD",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "This register represent the  level value of the internal uart rxd signal."
+            },
+            {
+                "name": "TXFIFO_CNT",
+                "bitOffset": 19,
+                "bitWidth": 5,
+                "desc": "Stores the byte number of data in Tx-FIFO."
+            },
+            {
+                "name": "DTRN",
+                "bitOffset": 29,
+                "bitWidth": 1,
+                "desc": "This bit represents the level of the internal uart dtr signal."
+            },
+            {
+                "name": "RTSN",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "This bit represents the level of the internal uart rts signal."
+            },
+            {
+                "name": "TXD",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "This bit represents the  level of the internal uart txd signal."
+            }
+        ]
+    },
+    "1611338784": {
+        "name": "CONF0_SYNC",
+        "address": 1611338784,
+        "size": 32,
+        "access": "",
+        "desc": "Configuration register 0",
+        "fields": [
+            {
+                "name": "PARITY",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "This register is used to configure the parity check mode."
+            },
+            {
+                "name": "PARITY_EN",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable uart parity check."
+            },
+            {
+                "name": "BIT_NUM",
+                "bitOffset": 2,
+                "bitWidth": 2,
+                "desc": "This register is used to set the length of data."
+            },
+            {
+                "name": "STOP_BIT_NUM",
+                "bitOffset": 4,
+                "bitWidth": 2,
+                "desc": "This register is used to set the length of  stop bit."
+            },
+            {
+                "name": "TXD_BRK",
+                "bitOffset": 6,
+                "bitWidth": 1,
+                "desc": "Set this bit to enbale transmitter to  send NULL when the process of sending data is done."
+            },
+            {
+                "name": "LOOPBACK",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable uart loopback test mode."
+            },
+            {
+                "name": "TX_FLOW_EN",
+                "bitOffset": 13,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable flow control function for transmitter."
+            },
+            {
+                "name": "RXD_INV",
+                "bitOffset": 15,
+                "bitWidth": 1,
+                "desc": "Set this bit to inverse the level value of uart rxd signal."
+            },
+            {
+                "name": "TXD_INV",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "Set this bit to inverse the level value of uart txd signal."
+            },
+            {
+                "name": "DIS_RX_DAT_OVF",
+                "bitOffset": 17,
+                "bitWidth": 1,
+                "desc": "Disable UART Rx data overflow detect."
+            },
+            {
+                "name": "ERR_WR_MASK",
+                "bitOffset": 18,
+                "bitWidth": 1,
+                "desc": "1'h1: Receiver stops storing data into FIFO when data is wrong. 1'h0: Receiver stores the data even if the  received data is wrong."
+            },
+            {
+                "name": "MEM_CLK_EN",
+                "bitOffset": 20,
+                "bitWidth": 1,
+                "desc": "UART memory clock gate enable signal."
+            },
+            {
+                "name": "SW_RTS",
+                "bitOffset": 21,
+                "bitWidth": 1,
+                "desc": "This register is used to configure the software rts signal which is used in software flow control."
+            },
+            {
+                "name": "RXFIFO_RST",
+                "bitOffset": 22,
+                "bitWidth": 1,
+                "desc": "Set this bit to reset the uart receive-FIFO."
+            },
+            {
+                "name": "TXFIFO_RST",
+                "bitOffset": 23,
+                "bitWidth": 1,
+                "desc": "Set this bit to reset the uart transmit-FIFO."
+            }
+        ]
+    },
+    "1611338788": {
+        "name": "CONF1",
+        "address": 1611338788,
+        "size": 32,
+        "access": "",
+        "desc": "Configuration register 1",
+        "fields": [
+            {
+                "name": "RXFIFO_FULL_THRHD",
+                "bitOffset": 3,
+                "bitWidth": 5,
+                "desc": "It will produce rxfifo_full_int interrupt when receiver receives more data than this register value."
+            },
+            {
+                "name": "TXFIFO_EMPTY_THRHD",
+                "bitOffset": 11,
+                "bitWidth": 5,
+                "desc": "It will produce txfifo_empty_int interrupt when the data amount in Tx-FIFO is less than this register value."
+            },
+            {
+                "name": "CTS_INV",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "Set this bit to inverse the level value of uart cts signal."
+            },
+            {
+                "name": "DSR_INV",
+                "bitOffset": 17,
+                "bitWidth": 1,
+                "desc": "Set this bit to inverse the level value of uart dsr signal."
+            },
+            {
+                "name": "RTS_INV",
+                "bitOffset": 18,
+                "bitWidth": 1,
+                "desc": "Set this bit to inverse the level value of uart rts signal."
+            },
+            {
+                "name": "DTR_INV",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "Set this bit to inverse the level value of uart dtr signal."
+            },
+            {
+                "name": "SW_DTR",
+                "bitOffset": 20,
+                "bitWidth": 1,
+                "desc": "This register is used to configure the software dtr signal which is used in software flow control."
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 21,
+                "bitWidth": 1,
+                "desc": "1'h1: Force clock on for register. 1'h0: Support clock only when application writes registers."
+            }
+        ]
+    },
+    "1611338796": {
+        "name": "HWFC_CONF_SYNC",
+        "address": 1611338796,
+        "size": 32,
+        "access": "",
+        "desc": "Hardware flow-control configuration",
+        "fields": [
+            {
+                "name": "RX_FLOW_THRHD",
+                "bitOffset": 3,
+                "bitWidth": 5,
+                "desc": "This register is used to configure the maximum amount of data that can be received  when hardware flow control works."
+            },
+            {
+                "name": "RX_FLOW_EN",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "This is the flow enable bit for UART receiver."
+            }
+        ]
+    },
+    "1611338800": {
+        "name": "SLEEP_CONF0",
+        "address": 1611338800,
+        "size": 32,
+        "access": "",
+        "desc": "UART sleep configure register 0",
+        "fields": [
+            {
+                "name": "WK_CHAR1",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "This register restores the specified wake up char1 to wake up"
+            },
+            {
+                "name": "WK_CHAR2",
+                "bitOffset": 8,
+                "bitWidth": 8,
+                "desc": "This register restores the specified wake up char2 to wake up"
+            },
+            {
+                "name": "WK_CHAR3",
+                "bitOffset": 16,
+                "bitWidth": 8,
+                "desc": "This register restores the specified wake up char3 to wake up"
+            },
+            {
+                "name": "WK_CHAR4",
+                "bitOffset": 24,
+                "bitWidth": 8,
+                "desc": "This register restores the specified wake up char4 to wake up"
+            }
+        ]
+    },
+    "1611338804": {
+        "name": "SLEEP_CONF1",
+        "address": 1611338804,
+        "size": 32,
+        "access": "",
+        "desc": "UART sleep configure register 1",
+        "fields": [
+            {
+                "name": "WK_CHAR0",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "This register restores the specified char0 to wake up"
+            }
+        ]
+    },
+    "1611338808": {
+        "name": "SLEEP_CONF2",
+        "address": 1611338808,
+        "size": 32,
+        "access": "",
+        "desc": "UART sleep configure register 2",
+        "fields": [
+            {
+                "name": "ACTIVE_THRESHOLD",
+                "bitOffset": 0,
+                "bitWidth": 10,
+                "desc": "The uart is activated from light sleeping mode when the input rxd edge changes more times than this register value."
+            },
+            {
+                "name": "RX_WAKE_UP_THRHD",
+                "bitOffset": 13,
+                "bitWidth": 5,
+                "desc": "In wake up mode 1 this field is used to set the received data number threshold to wake up chip."
+            },
+            {
+                "name": "WK_CHAR_NUM",
+                "bitOffset": 18,
+                "bitWidth": 3,
+                "desc": "This register is used to select number of wake up char."
+            },
+            {
+                "name": "WK_CHAR_MASK",
+                "bitOffset": 21,
+                "bitWidth": 5,
+                "desc": "This register is used to mask  wake up char."
+            },
+            {
+                "name": "WK_MODE_SEL",
+                "bitOffset": 26,
+                "bitWidth": 2,
+                "desc": "This register is used to select wake up mode. 0: RXD toggling to wake up. 1: received data number larger than"
+            }
+        ]
+    },
+    "1611338812": {
+        "name": "SWFC_CONF0_SYNC",
+        "address": 1611338812,
+        "size": 32,
+        "access": "",
+        "desc": "Software flow-control character configuration",
+        "fields": [
+            {
+                "name": "XON_CHAR",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "This register stores the Xon flow control char."
+            },
+            {
+                "name": "XOFF_CHAR",
+                "bitOffset": 8,
+                "bitWidth": 8,
+                "desc": "This register stores the Xoff flow control char."
+            },
+            {
+                "name": "XON_XOFF_STILL_SEND",
+                "bitOffset": 16,
+                "bitWidth": 1,
+                "desc": "In software flow control mode, UART Tx is disabled once UART Rx receives XOFF. In this status, UART Tx can not transmit XOFF even the received data number is larger than UART_XOFF_THRESHOLD. Set this bit to enable UART Tx can transmit XON/XOFF when UART Tx is disabled."
+            },
+            {
+                "name": "SW_FLOW_CON_EN",
+                "bitOffset": 17,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable software flow control. It is used with register sw_xon or sw_xoff."
+            },
+            {
+                "name": "XONOFF_DEL",
+                "bitOffset": 18,
+                "bitWidth": 1,
+                "desc": "Set this bit to remove flow control char from the received data."
+            },
+            {
+                "name": "FORCE_XON",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable the transmitter to go on sending data."
+            },
+            {
+                "name": "FORCE_XOFF",
+                "bitOffset": 20,
+                "bitWidth": 1,
+                "desc": "Set this bit to stop the  transmitter from sending data."
+            },
+            {
+                "name": "SEND_XON",
+                "bitOffset": 21,
+                "bitWidth": 1,
+                "desc": "Set this bit to send Xon char. It is cleared by hardware automatically."
+            },
+            {
+                "name": "SEND_XOFF",
+                "bitOffset": 22,
+                "bitWidth": 1,
+                "desc": "Set this bit to send Xoff char. It is cleared by hardware automatically."
+            }
+        ]
+    },
+    "1611338816": {
+        "name": "SWFC_CONF1",
+        "address": 1611338816,
+        "size": 32,
+        "access": "",
+        "desc": "Software flow-control character configuration",
+        "fields": [
+            {
+                "name": "XON_THRESHOLD",
+                "bitOffset": 3,
+                "bitWidth": 5,
+                "desc": "When the data amount in Rx-FIFO is less than this register value with uart_sw_flow_con_en set to 1  it will send a Xon char."
+            },
+            {
+                "name": "XOFF_THRESHOLD",
+                "bitOffset": 11,
+                "bitWidth": 5,
+                "desc": "When the data amount in Rx-FIFO is more than this register value with uart_sw_flow_con_en set to 1  it will send a Xoff char."
+            }
+        ]
+    },
+    "1611338820": {
+        "name": "TXBRK_CONF_SYNC",
+        "address": 1611338820,
+        "size": 32,
+        "access": "",
+        "desc": "Tx Break character configuration",
+        "fields": [
+            {
+                "name": "TX_BRK_NUM",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "This register is used to configure the number of 0 to be sent after the process of sending data is done. It is active when txd_brk is set to 1."
+            }
+        ]
+    },
+    "1611338824": {
+        "name": "IDLE_CONF_SYNC",
+        "address": 1611338824,
+        "size": 32,
+        "access": "",
+        "desc": "Frame-end idle configuration",
+        "fields": [
+            {
+                "name": "RX_IDLE_THRHD",
+                "bitOffset": 0,
+                "bitWidth": 10,
+                "desc": "It will produce frame end signal when receiver takes more time to receive one byte data than this register value."
+            },
+            {
+                "name": "TX_IDLE_NUM",
+                "bitOffset": 10,
+                "bitWidth": 10,
+                "desc": "This register is used to configure the duration time between transfers."
+            }
+        ]
+    },
+    "1611338828": {
+        "name": "RS485_CONF_SYNC",
+        "address": 1611338828,
+        "size": 32,
+        "access": "",
+        "desc": "RS485 mode configuration",
+        "fields": [
+            {
+                "name": "DL0_EN",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Set this bit to delay the stop bit by 1 bit."
+            },
+            {
+                "name": "DL1_EN",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Set this bit to delay the stop bit by 1 bit."
+            }
+        ]
+    },
+    "1611338832": {
+        "name": "AT_CMD_PRECNT_SYNC",
+        "address": 1611338832,
+        "size": 32,
+        "access": "",
+        "desc": "Pre-sequence timing configuration",
+        "fields": [
+            {
+                "name": "PRE_IDLE_NUM",
+                "bitOffset": 0,
+                "bitWidth": 16,
+                "desc": "This register is used to configure the idle duration time before the first at_cmd is received by receiver."
+            }
+        ]
+    },
+    "1611338836": {
+        "name": "AT_CMD_POSTCNT_SYNC",
+        "address": 1611338836,
+        "size": 32,
+        "access": "",
+        "desc": "Post-sequence timing configuration",
+        "fields": [
+            {
+                "name": "POST_IDLE_NUM",
+                "bitOffset": 0,
+                "bitWidth": 16,
+                "desc": "This register is used to configure the duration time between the last at_cmd and the next data."
+            }
+        ]
+    },
+    "1611338840": {
+        "name": "AT_CMD_GAPTOUT_SYNC",
+        "address": 1611338840,
+        "size": 32,
+        "access": "",
+        "desc": "Timeout configuration",
+        "fields": [
+            {
+                "name": "RX_GAP_TOUT",
+                "bitOffset": 0,
+                "bitWidth": 16,
+                "desc": "This register is used to configure the duration time between the at_cmd chars."
+            }
+        ]
+    },
+    "1611338844": {
+        "name": "AT_CMD_CHAR_SYNC",
+        "address": 1611338844,
+        "size": 32,
+        "access": "",
+        "desc": "AT escape sequence detection configuration",
+        "fields": [
+            {
+                "name": "AT_CMD_CHAR",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "This register is used to configure the content of at_cmd char."
+            },
+            {
+                "name": "CHAR_NUM",
+                "bitOffset": 8,
+                "bitWidth": 8,
+                "desc": "This register is used to configure the num of continuous at_cmd chars received by receiver."
+            }
+        ]
+    },
+    "1611338848": {
+        "name": "MEM_CONF",
+        "address": 1611338848,
+        "size": 32,
+        "access": "",
+        "desc": "UART memory power configuration",
+        "fields": [
+            {
+                "name": "MEM_FORCE_PD",
+                "bitOffset": 25,
+                "bitWidth": 1,
+                "desc": "Set this bit to force power down UART memory."
+            },
+            {
+                "name": "MEM_FORCE_PU",
+                "bitOffset": 26,
+                "bitWidth": 1,
+                "desc": "Set this bit to force power up UART memory."
+            }
+        ]
+    },
+    "1611338852": {
+        "name": "TOUT_CONF_SYNC",
+        "address": 1611338852,
+        "size": 32,
+        "access": "",
+        "desc": "UART threshold and allocation configuration",
+        "fields": [
+            {
+                "name": "RX_TOUT_EN",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "This is the enble bit for uart receiver's timeout function."
+            },
+            {
+                "name": "RX_TOUT_FLOW_DIS",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Set this bit to stop accumulating idle_cnt when hardware flow control works."
+            },
+            {
+                "name": "RX_TOUT_THRHD",
+                "bitOffset": 2,
+                "bitWidth": 10,
+                "desc": "This register is used to configure the threshold time that receiver takes to receive one byte. The rxfifo_tout_int interrupt will be trigger when the receiver takes more time to receive one byte with rx_tout_en set to 1."
+            }
+        ]
+    },
+    "1611338856": {
+        "name": "MEM_TX_STATUS",
+        "address": 1611338856,
+        "size": 32,
+        "access": "",
+        "desc": "Tx-SRAM write and read offset address.",
+        "fields": [
+            {
+                "name": "TX_SRAM_WADDR",
+                "bitOffset": 3,
+                "bitWidth": 5,
+                "desc": "This register stores the offset write address in Tx-SRAM."
+            },
+            {
+                "name": "TX_SRAM_RADDR",
+                "bitOffset": 12,
+                "bitWidth": 5,
+                "desc": "This register stores the offset read address in Tx-SRAM."
+            }
+        ]
+    },
+    "1611338860": {
+        "name": "MEM_RX_STATUS",
+        "address": 1611338860,
+        "size": 32,
+        "access": "",
+        "desc": "Rx-SRAM write and read offset address.",
+        "fields": [
+            {
+                "name": "RX_SRAM_RADDR",
+                "bitOffset": 3,
+                "bitWidth": 5,
+                "desc": "This register stores the offset read address in RX-SRAM."
+            },
+            {
+                "name": "RX_SRAM_WADDR",
+                "bitOffset": 12,
+                "bitWidth": 5,
+                "desc": "This register stores the offset write address in Rx-SRAM."
+            }
+        ]
+    },
+    "1611338864": {
+        "name": "FSM_STATUS",
+        "address": 1611338864,
+        "size": 32,
+        "access": "",
+        "desc": "UART transmit and receive status.",
+        "fields": [
+            {
+                "name": "ST_URX_OUT",
+                "bitOffset": 0,
+                "bitWidth": 4,
+                "desc": "This is the status register of receiver."
+            },
+            {
+                "name": "ST_UTX_OUT",
+                "bitOffset": 4,
+                "bitWidth": 4,
+                "desc": "This is the status register of transmitter."
+            }
+        ]
+    },
+    "1611338888": {
+        "name": "CLK_CONF",
+        "address": 1611338888,
+        "size": 32,
+        "access": "",
+        "desc": "UART core clock configuration",
+        "fields": [
+            {
+                "name": "SCLK_DIV_B",
+                "bitOffset": 0,
+                "bitWidth": 6,
+                "desc": "The  denominator of the frequency divider factor."
+            },
+            {
+                "name": "SCLK_DIV_A",
+                "bitOffset": 6,
+                "bitWidth": 6,
+                "desc": "The numerator of the frequency divider factor."
+            },
+            {
+                "name": "SCLK_DIV_NUM",
+                "bitOffset": 12,
+                "bitWidth": 8,
+                "desc": "The integral part of the frequency divider factor."
+            },
+            {
+                "name": "SCLK_SEL",
+                "bitOffset": 20,
+                "bitWidth": 2,
+                "desc": "UART clock source select. 1: 80Mhz.  2: 8Mhz.  3: XTAL."
+            },
+            {
+                "name": "SCLK_EN",
+                "bitOffset": 22,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable UART Tx/Rx clock."
+            },
+            {
+                "name": "RST_CORE",
+                "bitOffset": 23,
+                "bitWidth": 1,
+                "desc": "Write 1 then write 0 to this bit to reset UART Tx/Rx."
+            },
+            {
+                "name": "TX_SCLK_EN",
+                "bitOffset": 24,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable UART Tx clock."
+            },
+            {
+                "name": "RX_SCLK_EN",
+                "bitOffset": 25,
+                "bitWidth": 1,
+                "desc": "Set this bit to enable UART Rx clock."
+            },
+            {
+                "name": "TX_RST_CORE",
+                "bitOffset": 26,
+                "bitWidth": 1,
+                "desc": "Write 1 then write 0 to this bit to reset UART Tx."
+            },
+            {
+                "name": "RX_RST_CORE",
+                "bitOffset": 27,
+                "bitWidth": 1,
+                "desc": "Write 1 then write 0 to this bit to reset UART Rx."
+            }
+        ]
+    },
+    "1611338892": {
+        "name": "DATE",
+        "address": 1611338892,
+        "size": 32,
+        "access": "",
+        "desc": "UART Version register",
+        "fields": [
+            {
+                "name": "DATE",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "This is the version register."
+            }
+        ]
+    },
+    "1611338896": {
+        "name": "AFIFO_STATUS",
+        "address": 1611338896,
+        "size": 32,
+        "access": "",
+        "desc": "UART AFIFO Status",
+        "fields": [
+            {
+                "name": "TX_AFIFO_FULL",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Full signal of APB TX AFIFO."
+            },
+            {
+                "name": "TX_AFIFO_EMPTY",
+                "bitOffset": 1,
+                "bitWidth": 1,
+                "desc": "Empty signal of APB TX AFIFO."
+            },
+            {
+                "name": "RX_AFIFO_FULL",
+                "bitOffset": 2,
+                "bitWidth": 1,
+                "desc": "Full signal of APB RX AFIFO."
+            },
+            {
+                "name": "RX_AFIFO_EMPTY",
+                "bitOffset": 3,
+                "bitWidth": 1,
+                "desc": "Empty signal of APB RX AFIFO."
+            }
+        ]
+    },
+    "1611338904": {
+        "name": "REG_UPDATE",
+        "address": 1611338904,
+        "size": 32,
+        "access": "",
+        "desc": "UART Registers Configuration Update register",
+        "fields": [
+            {
+                "name": "REG_UPDATE",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "Software write 1 would synchronize registers into UART Core clock domain and would be cleared by hardware after synchronization is done."
+            }
+        ]
+    },
+    "1611338908": {
+        "name": "ID",
+        "address": 1611338908,
+        "size": 32,
+        "access": "",
+        "desc": "UART ID register",
+        "fields": [
+            {
+                "name": "ID",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "This register is used to configure the uart_id."
+            }
+        ]
+    },
+    "1611340800": {
+        "name": "CONFIG0",
+        "address": 1611340800,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "WDT_CHIP_RESET_WIDTH",
+                "bitOffset": 0,
+                "bitWidth": 8,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_CHIP_RESET_EN",
+                "bitOffset": 8,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_PAUSE_IN_SLP",
+                "bitOffset": 9,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_APPCPU_RESET_EN",
+                "bitOffset": 10,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_PROCPU_RESET_EN",
+                "bitOffset": 11,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_FLASHBOOT_MOD_EN",
+                "bitOffset": 12,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_SYS_RESET_LENGTH",
+                "bitOffset": 13,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_CPU_RESET_LENGTH",
+                "bitOffset": 16,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_STG3",
+                "bitOffset": 19,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_STG2",
+                "bitOffset": 22,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_STG1",
+                "bitOffset": 25,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_STG0",
+                "bitOffset": 28,
+                "bitWidth": 3,
+                "desc": "need_des"
+            },
+            {
+                "name": "WDT_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340804": {
+        "name": "CONFIG1",
+        "address": 1611340804,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "WDT_STG0_HOLD",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340808": {
+        "name": "CONFIG2",
+        "address": 1611340808,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "WDT_STG1_HOLD",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340812": {
+        "name": "CONFIG3",
+        "address": 1611340812,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "WDT_STG2_HOLD",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340816": {
+        "name": "CONFIG4",
+        "address": 1611340816,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "WDT_STG3_HOLD",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340820": {
+        "name": "FEED",
+        "address": 1611340820,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "RTC_WDT_FEED",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340824": {
+        "name": "WPROTECT",
+        "address": 1611340824,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "WDT_WKEY",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340828": {
+        "name": "SWD_CONFIG",
+        "address": 1611340828,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SWD_RESET_FLAG",
+                "bitOffset": 0,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SWD_AUTO_FEED_EN",
+                "bitOffset": 18,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SWD_RST_FLAG_CLR",
+                "bitOffset": 19,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SWD_SIGNAL_WIDTH",
+                "bitOffset": 20,
+                "bitWidth": 10,
+                "desc": "need_des"
+            },
+            {
+                "name": "SWD_DISABLE",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "SWD_FEED",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340832": {
+        "name": "SWD_WPROTECT",
+        "address": 1611340832,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SWD_WKEY",
+                "bitOffset": 0,
+                "bitWidth": 32,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340836": {
+        "name": "INT_RAW",
+        "address": 1611340836,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SUPER_WDT_INT_RAW",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_WDT_INT_RAW",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340840": {
+        "name": "INT_ST",
+        "address": 1611340840,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SUPER_WDT_INT_ST",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_WDT_INT_ST",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340844": {
+        "name": "INT_ENA",
+        "address": 1611340844,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SUPER_WDT_INT_ENA",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_WDT_INT_ENA",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611340848": {
+        "name": "INT_CLR",
+        "address": 1611340848,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "SUPER_WDT_INT_CLR",
+                "bitOffset": 30,
+                "bitWidth": 1,
+                "desc": "need_des"
+            },
+            {
+                "name": "LP_WDT_INT_CLR",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    },
+    "1611341820": {
+        "name": "DATE",
+        "address": 1611341820,
+        "size": 32,
+        "access": "",
+        "desc": "need_des",
+        "fields": [
+            {
+                "name": "LP_WDT_DATE",
+                "bitOffset": 0,
+                "bitWidth": 31,
+                "desc": "need_des"
+            },
+            {
+                "name": "CLK_EN",
+                "bitOffset": 31,
+                "bitWidth": 1,
+                "desc": "need_des"
+            }
+        ]
+    }
+}
