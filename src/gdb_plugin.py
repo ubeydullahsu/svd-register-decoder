@@ -26,3 +26,15 @@ class SVDPeekCommand(gdb.Command):
     def __init__(self):
         super(SVDPeekCommand, self).__init__("svd_peek", gdb.COMMAND_USER)
         self.memory_map = None # Lazy loading of memory map
+
+    def load_memory_map(self):
+        if self.memory_map is None:
+            # To Do: Find a way to specift SVD file path dynamically
+            self.memory_map = parse_svd(svd_file)
+
+    def read_memory_address(self, address, size=4):
+        # Read 32-bit address from GDB
+
+    def invoke(self, arg):
+        # main method called when svd_peek command is used
+
