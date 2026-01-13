@@ -16,7 +16,6 @@ import sys
 
 from parser import parse_svd
 from decoder import decode_register_value, format_output
-from main import show_banner
 
 # insert the path to the current directory to sys.path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -46,7 +45,6 @@ class SVDPeekCommand(gdb.Command):
 
     def invoke(self, arg):
         # main method called when svd_peek command is used
-        show_banner()
 
         # Parse arguments (Hex string to integer)
         argv = gdb.string_to_argv(arg)
