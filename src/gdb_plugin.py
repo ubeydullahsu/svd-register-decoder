@@ -27,6 +27,15 @@ class SVDPeekCommand(gdb.Command):
         super(SVDPeekCommand, self).__init__("svd_peek", gdb.COMMAND_USER)
         self.memory_map = None # Lazy loading of memory map
 
+    def get_architecture_name(self):
+        # Get the architecture name from GDB. Program must be running.
+        try:
+            frame = gdb.selected_frame()
+            arch = frame.architecture().name()
+            return arch
+        except gdb.error:
+            return None
+
     def load_memory_map(self):
         if self.memory_map is None:
             # To Do: Find a way to specific SVD file path dynamically
