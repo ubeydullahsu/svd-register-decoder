@@ -15,7 +15,7 @@ import os
 import sys
 
 from parser import parse_svd
-from decoder import decode_register_value, format_output
+from decoder import decode_register_value, format_output_gdb
 
 # insert the path to the current directory to sys.path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -39,6 +39,17 @@ class SVDPeekCommand(gdb.Command):
     def load_memory_map(self):
         if self.memory_map is None:
             # To Do: Find a way to specific SVD file path dynamically
+            chip_name = self.get_architecture_name()
+            if chip_name is None:
+                print("[ ૮₍ ˃ ⤙ ˂ ₎ა ] Unable to determine architecture. Is the program running? [y/n]")
+                if input().lower() != 'y':
+                    print("What is the chip name? If you dont know press enter to continue.")
+                    chip_name = input().strip()
+                else:
+                    print("[ ૮₍ ˃ ⤙ ˂ ₎ა ] Execute command after running the program. Exiting.")
+                    exit(1)
+            
+            svd_file = chip_name + ".svd"
             self.memory_map = parse_svd(svd_file)
             
         return self.memory_map
@@ -84,5 +95,5 @@ class SVDPeekCommand(gdb.Command):
 
         register_info = memory_map[target_addr]
         decoded_output = decode_register_value(register_info, register_value)
-        formatted_output = format_output(decoded_output)
+        formatted_output = format_output_gdb(register_info, decoded_output)
         print(formatted_output)
