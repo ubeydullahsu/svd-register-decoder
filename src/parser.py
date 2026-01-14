@@ -255,4 +255,4 @@ def parse_svd_gdb(chip_name):
             print("[ ૮₍ ˃ ⤙ ˂ ₎ა ] Invalid choice. Exiting.")
             exit(1)
 
-        return memory_map
+    return memory_map
