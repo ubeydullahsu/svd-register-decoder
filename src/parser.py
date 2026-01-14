@@ -194,3 +194,65 @@ def parse_svd(file_path):
     # TO DO: Namespace management if root.findall cannot find elements. xlmns may be needed.
     
     return memory_map
+
+def parse_svd_gdb(chip_name):
+    '''
+    Main function to parse SVD file and generate memory map for GDB plugin
+
+    @param chip_name: Name of the chip to locate JSON database
+    @return: Dictionary representing memory map {address: RegisterDef}
+
+    '''
+
+    database_file_path = "database/" + chip_name + ".json"
+
+    if os.path.exists(database_file_path):
+        with open(database_file_path, 'r') as json_file:
+            json_map = json.load(json_file)
+        
+        memory_map = {}
+        for address_str, reg_data in json_map.items():
+            address = int(address_str)
+            reg_obj = RegisterDef(
+                name=reg_data["name"],
+                address=reg_data["address"],
+                size=reg_data["size"],
+                access=reg_data["access"],
+                desc=reg_data["desc"]
+            )
+            for field_data in reg_data["fields"]:
+                field_obj = FieldDef(
+                    name=field_data["name"],
+                    bitOffset=field_data["bitOffset"],
+                    bitWidth=field_data["bitWidth"],
+                    desc=field_data["desc"]
+                )
+                reg_obj.add_field(field_obj)
+            memory_map[address] = reg_obj
+        print("[(๑ > ᴗ < ๑)] memory map loaded from json database\n")
+
+    else:
+        print(f"[ ૮₍ ˃ ⤙ ˂ ₎ა ] JSON database for chip '{chip_name}' not found in 'database/' directory. Do you want to give the SVD file path [1] or scan all the database for closest match [2]? [1/2]")
+        choice = input().strip()
+        if choice == '1':
+            print("Please enter the full path to the SVD file:")
+            svd_path = input().strip()
+            memory_map = parse_svd(svd_path)
+        elif choice == '2':
+            print("[࿐ ࿔*:･ﾟ] Scanning database for closest match . .")
+            closest_match = None
+            for file in os.listdir("database/"):
+                if file.lower().startswith(chip_name.lower()) and file.endswith(".json"):
+                    closest_match = file
+                    break
+            if closest_match:
+                print(f"[(๑ > ᴗ < ๑)] Closest match found: {closest_match}")
+                memory_map = parse_svd_gdb(closest_match[:-5])  # remove .json extension
+            else:
+                print(f"[ ૮₍ ˃ ⤙ ˂ ₎ა ] No close match found in database. Exiting.")
+                return None
+        else:
+            print("[ ૮₍ ˃ ⤙ ˂ ₎ა ] Invalid choice. Exiting.")
+            exit(1)
+
+        return memory_map
