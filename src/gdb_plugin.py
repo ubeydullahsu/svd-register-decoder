@@ -14,7 +14,7 @@ import gdb
 import os
 import sys
 
-from parser import parse_svd
+from parser import parse_svd_gdb    
 from decoder import decode_register_value, format_output_gdb
 
 # insert the path to the current directory to sys.path
@@ -49,8 +49,7 @@ class SVDPeekCommand(gdb.Command):
                     print("[ ૮₍ ˃ ⤙ ˂ ₎ა ] Execute command after running the program. Exiting.")
                     exit(1)
             
-            svd_file = chip_name + ".svd"
-            self.memory_map = parse_svd(svd_file)
+            self.memory_map = parse_svd_gdb(chip_name)
             
         return self.memory_map
 
